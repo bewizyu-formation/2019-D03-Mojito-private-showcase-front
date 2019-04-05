@@ -3,7 +3,7 @@ import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
+
 
 @Component({
   selector: 'app-root',
@@ -20,12 +20,13 @@ export class AppComponent {
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
 
-  navigateToLogin() {
-    this.router.navigate([PATH_LOGIN]);
-  }
 
-  navigateToRegister() {
-    this.router.navigate([PATH_REGISTER]);
+
+  handleSampleLogin() {
+    this.userService
+      .login('user', 'user')
+      .then((token: string) => this.token = token,
+        );
   }
 
   handleCheckUserRole() {
