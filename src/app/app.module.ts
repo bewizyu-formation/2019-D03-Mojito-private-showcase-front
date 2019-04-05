@@ -8,14 +8,30 @@ import {APP_CONFIG} from './app.config';
 import {TokenInterceptorService} from './services/interceptors/token-interceptor.service';
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormUserComponent } from './form-user/form-user.component';
+import { FormArtistComponent } from './form-artist/form-artist.component';
+import { FormLoginComponent } from './form-login/form-login.component';
+import { HomeComponent } from './home/home.component';
+import {RouterModule} from '@angular/router';
+import {ROUTES} from './app.routes';
+import { WelcomeComponent } from './welcome/welcome.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormUserComponent,
+    FormArtistComponent,
+    FormLoginComponent,
+    HomeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
