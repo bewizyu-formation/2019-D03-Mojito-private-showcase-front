@@ -32,6 +32,7 @@
   margin: 0px  5px 0px 1052px;
   color: #ffffff;
   background-color: #4a4a4a;
+  border: #4a4a4a;
 }
 .sign{
   display: flex;
@@ -39,6 +40,7 @@
   margin-right: 32px;
   color: #ffffff;
   background-color: #4a4a4a;
+  border: #4a4a4a;
 }
 .pipe{
   display: flex;
