@@ -20,13 +20,12 @@ export class AppComponent {
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
 
-  navigateToLogin() {
-    this.router.navigate([PATH_LOGIN]);
-  }
-
-  navigateToRegister() {
-    this.router.navigate([PATH_REGISTER]);
-  }
+  handleSampleLogin() {	  navigateToLogin() {
+    this.userService	    this.router.navigate([PATH_LOGIN]);
+      .login('user', 'user')	  }
+      .then(	
+         (token: string) => this.token = token,	  navigateToRegister() {
+      );
 
   handleCheckUserRole() {
     this.hello.testApiWithUserRole()
