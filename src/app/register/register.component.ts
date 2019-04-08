@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 
-export class FormUserComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   isHidden = true;
   email = new FormControl('', [Validators.required, Validators.email]);
   title = 'Private Showcase';
