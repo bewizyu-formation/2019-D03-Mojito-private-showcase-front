@@ -3,11 +3,13 @@ import {FormControl, Validators} from '@angular/forms';
 import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class FormUserComponent implements OnInit {
   isHidden = true;
   email = new FormControl('', [Validators.required, Validators.email]);

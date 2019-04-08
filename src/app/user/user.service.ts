@@ -16,7 +16,7 @@ export class UserService {
   }
 
   /**
-   * Login the user
+   * LoginComponent the user
    * @param username User login name
    * @param password User Password
    */
