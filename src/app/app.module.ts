@@ -9,9 +9,9 @@ import {TokenInterceptorService} from './services/interceptors/token-interceptor
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormUserComponent } from './form-user/form-user.component';
+import { FormUserComponent } from './register/form-user.component';
 import { FormArtistComponent } from './form-artist/form-artist.component';
-import { FormLoginComponent } from './form-login/form-login.component';
+import { FormLoginComponent } from './login/form-login.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
