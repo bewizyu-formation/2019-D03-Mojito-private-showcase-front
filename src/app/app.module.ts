@@ -20,12 +20,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCheckboxModule, MatIconModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatIconModule,
   MatInputModule,
-  MatListModule, MatSelectModule
+  MatListModule,
+  MatSelectModule
 } from '@angular/material';
-
-
 
 @NgModule({
   declarations: [
