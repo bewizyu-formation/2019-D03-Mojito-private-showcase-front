@@ -5,7 +5,6 @@ import {Router} from '@angular/router';
 import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,17 +17,7 @@ export class AppComponent {
   selecetdFile: File;
   imagePreview: string;
 
-
-
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
-  }
-
-  goToLogPage() {
-    this.router.navigate([PATH_LOGIN]);
-  }
-
-  goToSignPage() {
-    this.router.navigate([PATH_REGISTER]);
   }
 
   handleSampleLogin() {

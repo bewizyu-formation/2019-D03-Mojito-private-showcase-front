@@ -1,3 +1,9 @@
+<mat-nav-list class="navbar navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand">{{title}}</a>
+  </div>
+</mat-nav-list>
+
 <div class="container">
   <div class="banniere">
     <img src="../../assets/images/28045370998-7-fd-65-a-69-b-3-k.jpg">
@@ -31,6 +37,7 @@
         <input matInput placeholder="Ville">
       </mat-form-field>
 
+
       <mat-checkbox labelPosition="after" appearance="standard">
         <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
       </mat-checkbox>
@@ -44,8 +51,8 @@
       </mat-form-field>
 
       <form class="">
-        <button mat-button class="button-bg">Annuler</button>
-        <button mat-button class="button-bg2">Valider</button>
+        <button (click)="cancel()" mat-button class="button-bg">Annuler</button>
+        <button (click)="goToLogPage()" mat-button class="button-bg2">Valider</button>
       </form>
 
     </div>
