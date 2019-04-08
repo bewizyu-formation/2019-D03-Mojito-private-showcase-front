@@ -1,83 +1,36 @@
-.navbar-fixed-top{
-  width: 1280px;
-  height: 64px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-  background-color: #4a4a4a;
-}
-.navbar-header{
-  width: 1280px;
-  height: 64px;
-  display: flex;
-  position: absolute;
-  font-family: Roboto;
-}
-.navbar-brand{
-  color: #ffffff;
-  display: flex;
-  position: absolute;
-  padding:13px 495px 19px 495px;
-  width: 290px;
-  height: 32px;
-  font-size: 36px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 0.89;
-  letter-spacing: normal;
-
-}
-.log{
-  display: flex;
-  align-items: center;
-  margin: 0px  5px 0px 1052px;
-  color: #ffffff;
-  background-color: #4a4a4a;
-  border: #4a4a4a;
-}
-.sign{
-  display: flex;
-  align-items: center;
-  margin-right: 32px;
-  color: #ffffff;
-  background-color: #4a4a4a;
-  border: #4a4a4a;
-}
-.pipe{
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  font-weight: bold;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.container{
+.container {
   background-color: rgb(122, 128, 137);
   color: #ffffff;
   display: flex;
   width: 1280px;
   height: 786px;
   flex-direction: column;
+  margin: auto;
 }
-.banniere{
+
+.banniere {
   width: 1280px;
   height: 426px;
   object-fit: contain;
 }
-.description{
+
+.description {
   font-size: 22px;
-  margin: 0px  200px 0px 201px;
+  margin: 0 200px 0 201px;
 }
-.subDescription{
+
+.subDescription {
   margin-left: 201px;
 }
-.subContainer{
+
+.subContainer {
   display: flex;
   height: 263px;
   width: 1280px;
   color: #ffffff;
 }
-.containerOpt{
+
+.containerOpt {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -91,22 +44,24 @@
   text-align: center;
 }
 
-.imageSub{
-  padding-top: 12px ;
+.imageSub {
+  padding-top: 12px;
   border-radius: 50%;
   width: 163px;
-  height: 166px;
+  height: 163px;
 }
-.title{
+
+.title {
   font-size: 24px;
   width: 150px;
   height: 32px;
-  margin: 0px;
+  margin: 0;
 }
-.subtitle{
+
+.subtitle {
   font-size: 16px;
   width: 209px;
   height: 44px;
-  margin: 0px;
+  margin: 0;
 }
 

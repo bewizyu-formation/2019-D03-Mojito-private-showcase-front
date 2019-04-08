@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {MatListModule} from "@angular/material";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    MatListModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
