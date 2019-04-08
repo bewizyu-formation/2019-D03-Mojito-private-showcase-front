@@ -1,4 +1,65 @@
-<h3> Register </h3>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand">Private ShowCase</a>
+    <button class="log">se connecter</button>
+    <li class="pipe">|</li>
+    <button class="sign">s'inscrire</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="banniere">
+    <img src="../../assets/images/28045370998-7-fd-65-a-69-b-3-k.jpg">
+  </div>
+  <div class="subContainer">
+
+    <div class="containerOpt">
+      <p class="form-title">Formulaire d'inscription</p>
+
+      <mat-form-field appearance="standard" floatLabel="=auto">
+        <input matInput placeholder="Identifiant">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <input matInput  placeholder="Confirmez le mot de passe" [type]="isHidden ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <!-- entrée Ville à changer pour un autocomplete -->
+      <mat-form-field appearance="standard" floatLabel="auto">
+        <input matInput placeholder="Ville">
+      </mat-form-field>
 
 
 
+
+      <mat-checkbox labelPosition="after" appearance="standard">
+        <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
+      </mat-checkbox>
+
+      <mat-form-field appearance="standard" floatLabel="auto">
+        <input matInput placeholder="Nom d'artiste">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Description"></textarea>
+      </mat-form-field>
+
+      <form class="">
+        <button mat-button class="button-bg">Annuler</button>
+        <button mat-button class="button-bg2">Valider</button>
+      </form>
+
+    </div>
+  </div>
+</div>
