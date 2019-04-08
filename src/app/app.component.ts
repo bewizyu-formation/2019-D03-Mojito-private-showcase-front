@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 import {Router} from '@angular/router';
-
+import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
 
 
 
@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'private-showcase';
+  title = 'Private Showcase';
   token: string;
 
   selecetdFile: File;
@@ -23,13 +23,19 @@ export class AppComponent {
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
 
+  goToLogPage() {
+    this.router.navigate([PATH_LOGIN]);
+  }
 
+  goToSignPage() {
+    this.router.navigate([PATH_REGISTER]);
+  }
 
   handleSampleLogin() {
     this.userService
       .login('user', 'user')
       .then((token: string) => this.token = token,
-        );
+      );
   }
 
   handleCheckUserRole() {
@@ -64,10 +70,3 @@ export class AppComponent {
   }
 }
 
-
-
-// OnUploadFile() {
-// //Upload file here send a binary data
-//     this.http.post(‘yourdomain.com/file-upload’, this.selectedFile)
-//   .subscribe(…);
-//   }

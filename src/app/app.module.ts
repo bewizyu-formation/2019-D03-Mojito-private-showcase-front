@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -23,10 +24,9 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatListModule,
   MatSelectModule
 } from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -39,18 +39,18 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(ROUTES),
+    MatListModule,
+    MatAutocompleteModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES),
-    MatAutocompleteModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
