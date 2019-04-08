@@ -3,6 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
 .navbar-fixed-top {
   width: 1280px;
   height: 64px;
@@ -60,3 +61,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-nav-list{
   color: #ffffff;
 }
+
+.form_button{
+  width: 93px;
+  height: 36px;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  color:white;
+  padding-bottom: 30px;
+}
+

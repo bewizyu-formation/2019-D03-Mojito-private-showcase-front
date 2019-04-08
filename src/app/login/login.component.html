@@ -22,11 +22,11 @@
         <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'">
         <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
-
-      <form class="">
-      <button (click)="cancel()" mat-button class="button-bg">Annuler</button>
-      <button (click)="goToHomePage()" mat-button class="button-bg2">Valider</button>
-      </form>
+      
+      <p>
+      <button (click)="cancel()" mat-button class="form_button form_button--cancel">Annuler</button>
+      <button (click)="goToHomePage()" mat-button class="form_button form_button--validate">Valider</button>
+        </p>
 
     </div>
   </div>
