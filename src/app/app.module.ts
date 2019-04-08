@@ -9,14 +9,16 @@ import {TokenInterceptorService} from './services/interceptors/token-interceptor
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormUserComponent } from './form-user/form-user.component';
+import { FormUserComponent } from './register/form-user.component';
 import { FormArtistComponent } from './form-artist/form-artist.component';
-import { FormLoginComponent } from './form-login/form-login.component';
+import { FormLoginComponent } from './login/form-login.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {MatListModule} from "@angular/material";
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatListModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -30,10 +32,19 @@ import {MatListModule} from "@angular/material";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(ROUTES),
+    FormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
     MatListModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES)
+
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},

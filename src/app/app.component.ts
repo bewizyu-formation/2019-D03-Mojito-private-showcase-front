@@ -4,6 +4,8 @@ import {HelloRepository} from './hello/hello.repository';
 import {Router} from '@angular/router';
 import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,6 +17,8 @@ export class AppComponent {
 
   selecetdFile: File;
   imagePreview: string;
+
+
 
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }

@@ -9,6 +9,12 @@ export class FormLoginComponent implements OnInit {
 
   constructor() { }
 
+  isHidden = true;
+
+  hidePassword() {
+    this.isHidden = !this.isHidden;
+  }
+
   ngOnInit() {
   }
 
