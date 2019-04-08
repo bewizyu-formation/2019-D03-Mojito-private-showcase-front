@@ -16,7 +16,15 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {MatListModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatCheckboxModule, MatIconModule,
+  MatInputModule,
+  MatListModule, MatSelectModule
+} from '@angular/material';
+
 
 
 @NgModule({
@@ -33,7 +41,15 @@ import {MatListModule} from '@angular/material';
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
-    MatListModule
+    MatListModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
