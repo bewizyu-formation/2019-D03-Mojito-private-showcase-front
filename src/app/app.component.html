@@ -1,33 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-</div>
 <app-welcome></app-welcome>
+<router-outlet> </router-outlet>
 
-<!-- <div>
-  <h2>Samples</h2>
-  <div>
-    <button (click)="handleSampleLogin()">Login with sample user</button>
-  </div>
-  <div *ngIf="token">
-    <p>{{token}}</p>
-    <div>
-      <button (click)="handleCheckUserRole()">Check API endpoint with user role</button>
-      <button (click)="handleCheckAdminRole()">Check API endpoint with admin role</button>
-    </div>
-    <div class="upload__container">
-      <input style="display:none" type="file" (change)="onFileUpload($event)" #selectFile accept="image/*">
-      <div (click)="selectFile.click()"
-           class="upload__container__background"
-           *ngIf="!imagePreview"
-      >
-        <p>Click sur l'image pour upload une image</p>
-      </div>
-      <div *ngIf="imagePreview">
-        <img [src]="imagePreview" class="upload__preview">
-      </div>
-    </div>
-  </div>
-</div>-->
 
 
 

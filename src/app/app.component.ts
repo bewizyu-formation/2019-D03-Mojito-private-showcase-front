@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -15,15 +17,16 @@ export class AppComponent {
   selecetdFile: File;
   imagePreview: string;
 
-  constructor(private userService: UserService, private hello: HelloRepository) {
+  constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
+
+
 
   handleSampleLogin() {
     this.userService
       .login('user', 'user')
-      .then(
-        (token: string) => this.token = token,
-      );
+      .then((token: string) => this.token = token,
+        );
   }
 
   handleCheckUserRole() {
