@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form-user',
@@ -9,12 +11,21 @@ import {FormControl, Validators} from '@angular/forms';
 export class FormUserComponent implements OnInit {
   isHidden = true;
   email = new FormControl('', [Validators.required, Validators.email]);
+  title = 'Private Showcase';
 
-
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   hidePassword() {
     this.isHidden = !this.isHidden;
+  }
+
+  cancel() {
+    this.router.navigate([PATH_WELCOME]);
+  }
+
+  goToLogPage() {
+    this.router.navigate([PATH_LOGIN]);
   }
 
   getErrorMessage() {

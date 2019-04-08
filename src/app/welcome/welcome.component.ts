@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {PATH_LOGIN, PATH_REGISTER} from '../app.routes.constante';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -6,8 +8,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  title = 'Private Showcase';
 
-  constructor() { }
+  constructor(private router: Router) { }
+  goToLogPage() {
+    this.router.navigate([PATH_LOGIN]);
+  }
 
+  goToSignPage() {
+    this.router.navigate([PATH_REGISTER]);
+  }
   ngOnInit() {}
 }
