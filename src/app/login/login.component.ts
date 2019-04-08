@@ -3,11 +3,11 @@ import {PATH_HOME, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-form-login',
-  templateUrl: './form-login.component.html',
-  styleUrls: ['./form-login.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class FormLoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(private router: Router) {
   }
