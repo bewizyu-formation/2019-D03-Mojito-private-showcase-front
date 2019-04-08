@@ -1,0 +1,35 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand">Private ShowCase</a>
+    <button class="log">se connecter</button>
+    <li class="pipe">|</li>
+    <button class="sign">s'inscrire</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="banniere">
+    <img src="../../assets/images/28045370998-7-fd-65-a-69-b-3-k.jpg">
+  </div>
+  <div class="subContainer">
+
+    <div class="containerOpt">
+      <p class="form-title">Formulaire d'inscription</p>
+
+      <mat-form-field appearance="standard" floatLabel="=auto">
+        <input matInput placeholder="Identifiant">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <form class="">
+      <button mat-button class="button-bg">Annuler</button>
+      <button mat-button class="button-bg2">Valider</button>
+      </form>
+
+    </div>
+  </div>
+</div>
