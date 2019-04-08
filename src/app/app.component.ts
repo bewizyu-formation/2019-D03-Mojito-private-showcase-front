@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
-import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
+
+
 
 
 @Component({
@@ -16,6 +17,8 @@ export class AppComponent {
 
   selecetdFile: File;
   imagePreview: string;
+
+
 
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
