@@ -21,7 +21,6 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatCheckboxModule,
-  MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule,
@@ -42,6 +41,8 @@ import {
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
+    FormsModule,
+    ReactiveFormsModule,
     MatListModule,
     MatAutocompleteModule,
     MatInputModule,
@@ -49,9 +50,7 @@ import {
     MatCheckboxModule,
     MatIconModule,
     MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {EnvironmentService} from '../services/environment.service';
 
 export const RESOURCES_LOGIN = '/login';
+export const RESOURCES_REGISTER = '/users/create/';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,24 @@ export class UserRepository {
    */
   login(username: string, password: string): Observable<any> {
     return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_LOGIN}`, {
-      username,
-      password,
-    },
+        username,
+        password,
+      },
       {observe: 'response'}
     );
+  }
+
+  register(username: string, password: string, email: string, nomVille: string,
+           codeVille: string, nomDept: string, codeDept: string): Promise<any> {
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER}?
+    username=${username}&
+    password=${password}&
+    email=${email}&
+    nomVille=${nomVille}&
+    codeVille=${codeVille}&
+    nomDept=${nomDept}&
+    codeDept=${codeDept}`, {},
+      {observe: 'response'}
+    ).toPromise();
   }
 }

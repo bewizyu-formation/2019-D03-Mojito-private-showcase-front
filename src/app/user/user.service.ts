@@ -21,13 +21,25 @@ export class UserService {
    * @param password User Password
    */
   login(username: string, password: string): Promise<string> {
-    return new Promise ((resolve) => {
+    return new Promise((resolve) => {
       this.userRepository
         .login(username, password)
         .subscribe((response: HttpResponse<any>) => {
           this.token = response.headers.get('Authorization');
           console.log('Response Token : ', this.token);
           resolve(this.token);
+        });
+    });
+  }
+
+  register(username: string, password: string, email: string, nomVille: string,
+           codeVille: string, nomDept: string, codeDept: string): Promise<any> {
+    return new Promise((resolve) => {
+      this.userRepository
+        .register(username, password, email, nomVille, codeVille, nomDept, codeDept)
+        .then((response: HttpResponse<any>) => {
+          console.log(response);
+          resolve();
         });
     });
   }

@@ -12,16 +12,16 @@
     <img src="../../assets/images/28045370998-7-fd-65-a-69-b-3-k.jpg">
   </div>
   <div class="subContainer">
-
+<form (ngSubmit)="handleSubmit()" [formGroup]="userForm">
     <div class="containerOpt">
       <p class="form-title">Formulaire d'inscription</p>
 
       <mat-form-field appearance="standard" floatLabel="=auto">
-        <input matInput placeholder="Identifiant">
+        <input matInput placeholder="Identifiant" formControlName="username">
       </mat-form-field>
 
       <mat-form-field appearance="standard">
-        <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'">
+        <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'" formControlName="password">
         <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
@@ -31,15 +31,14 @@
       </mat-form-field>
 
       <mat-form-field appearance="standard">
-        <input matInput placeholder="Email" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="emailCtrl.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
 
       <!-- entrée Ville à changer pour un autocomplete -->
       <mat-form-field appearance="standard" floatLabel="auto">
-        <input matInput placeholder="Ville">
+        <input matInput placeholder="Ville" formControlName="nomVille">
       </mat-form-field>
-
 
       <mat-checkbox labelPosition="after" appearance="standard" [(ngModel)]="checked">
         <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
@@ -61,8 +60,8 @@
         </p>
 
 
-
-
+    </div>
+  </form>
   </div>
   </div>
-</div>
+

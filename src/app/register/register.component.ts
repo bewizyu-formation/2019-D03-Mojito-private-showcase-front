@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
+import {UserService} from '../user/user.service';
 
 
 @Component({
@@ -12,11 +13,37 @@ import {Router} from '@angular/router';
 
 export class RegisterComponent implements OnInit {
   isHidden = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
   title = 'Private Showcase';
   checked = false;
 
-  constructor(private router: Router) {
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  emailCtrl: FormControl;
+  nomVilleCtrl: FormControl;
+  codeVilleCtrl: FormControl;
+  nomDeptCtrl: FormControl;
+  codeDeptCtrl: FormControl;
+  userForm: FormGroup;
+
+  constructor(private router: Router, private user: UserService, private fb: FormBuilder) {
+    // creation des controles
+    this.usernameCtrl = fb.control('');
+    this.passwordCtrl = fb.control('');
+    this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
+    this.nomVilleCtrl = fb.control('');
+    this.codeVilleCtrl = fb.control('');
+    this.nomDeptCtrl = fb.control('');
+    this.codeDeptCtrl = fb.control('');
+    // création du groupe
+    this.userForm = fb.group({
+      username: this.usernameCtrl.value,
+      password: this.passwordCtrl.value,
+      email: this.emailCtrl.value,
+      nomVille: this.nomVilleCtrl.value,
+      codeVille: this.codeVilleCtrl,
+      nomDept: this.nomDeptCtrl,
+      codeDept: this.codeDeptCtrl
+    });
   }
 
   hidePassword() {
@@ -28,13 +55,20 @@ export class RegisterComponent implements OnInit {
   }
 
   goToLogPage() {
-    this.router.navigate([PATH_LOGIN]);
+    this.user.register(`${this.usernameCtrl}`, `${this.passwordCtrl}`, `${this.emailCtrl}`,
+      `${this.nomVilleCtrl}`,
+      'codeVille', 'nomDept', 'codeDept');
+    // .then((data) => {this.router.navigate([PATH_LOGIN]); });
   }
 
   getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+    return this.emailCtrl.hasError('required') ? 'You must enter a value' :
+      this.emailCtrl.hasError('email') ? 'Not a valid email' :
         '';
+  }
+
+  handleSubmit() {
+    console.log(this.userForm.value);
   }
 
   ngOnInit() {
