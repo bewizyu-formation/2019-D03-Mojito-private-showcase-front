@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 import {Router} from '@angular/router';
 import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
+import {UserRepository} from './user/user.repository';
 
 
 @Component({
@@ -11,6 +12,7 @@ import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'Private Showcase';
   token: string;
 
@@ -20,7 +22,7 @@ export class AppComponent {
   constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
 
-  handleSampleLogin() {
+  handleLogin() {
     this.userService
       .login('user', 'user')
       .then((token: string) => this.token = token,
