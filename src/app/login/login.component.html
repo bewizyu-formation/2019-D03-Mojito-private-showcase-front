@@ -1,6 +1,9 @@
 <mat-nav-list class="navbar navbar-fixed-top">
   <div class="navbar-header">
     <a class="navbar-brand">{{title}}</a>
+    <button  (click)="cancel()" mat-icon-button class="backIcon" >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
 </mat-nav-list>
 
@@ -24,11 +27,14 @@
         <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
     </div>
-   
-      <button (click)="cancel()" mat-button class="button-bg">Annuler</button>
-      <button mat-button class="button-bg2" (ngSubmit)="userLogin()"> Valider </button>
-   
-    </form>
+ 
+     <p>
+      <button (click)="cancel()" mat-button class="form_button form_button--cancel">Annuler</button>
+      <button mat-button class="form_button form_button--validate" (ngSubmit)="userLogin()">Valider</button>
+     </p>
+        
+      </form>
+
     </div>
   </div>
 </div>

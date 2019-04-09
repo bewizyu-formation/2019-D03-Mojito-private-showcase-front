@@ -1,0 +1,48 @@
+.navbar-brand{
+  padding: 13px 429px 19px 335px;
+}
+.subContainer {
+  display: flex;
+  height: 263px;
+  width: 1280px;
+  color: #ffffff;
+}
+
+.containerOpt {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin:  49px  -74px 0 94px   ;
+  background-color: #b8b6b6;
+  box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.3), 0 0 24px 0 rgba(0, 0, 0, 0.22);
+  width: 344px;
+  height: 304px;
+  text-align: center;
+}
+.imageSub {
+  padding-top: 12px;
+  border-radius: 50%;
+  width: 163px;
+  height: 163px;
+}
+.title {
+  font-size: 24px;
+  width: 150px;
+  height: 32px;
+  margin: 0;
+}
+.subtitle {
+  font-size: 16px;
+  width: 209px;
+  height: 44px;
+  margin: 0;
+}
+.menuIcon{
+  margin-top: 10px;
+  margin-left: 24px;
+}
+.settingsIcon{
+  margin-top: 10px;
+  margin-left: 1170px;
+}

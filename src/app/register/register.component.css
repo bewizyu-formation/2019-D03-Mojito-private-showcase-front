@@ -1,25 +1,23 @@
+.navbar-brand{
+  padding: 13px 495px 19px 495px;
+}
 .container{
   background-color: rgb(122, 128, 137);
   display:flex;
   width: 1280px;
-  height: 1500px;
+  height: auto;
   margin:auto;
   flex-direction: column;
-}
-.banniere{
-  width: 1280px;
-  height: 426px;
-  object-fit: contain;
 }
 .subContainer{
   display: flex;
   width: 1280px;
 }
+
 .containerOpt{
   display:flex;
   flex-direction: column;
-  margin: auto;
-  align-items: center;
+  margin: 50px auto 100px auto;
   background-color: #e7e6e6;
   box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.3), 0 0 24px 0 rgba(0, 0, 0, 0.23);
   width: 396px;
@@ -33,6 +31,11 @@
   width: 100%;
 }
 
+.form-hidden{
+  display: flex;
+  flex-direction: column;
+}
+
 .form-title{
   text-align: center;
   padding: 20px;
@@ -43,23 +46,16 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
-.button-bg{
-  width: 93px;
-  height: 36px;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+.form_button--cancel{
   background-color: #4a4a4a;
-  color:white;
 }
 
+.backIcon{
+  margin-top: 8px;
+}
 
-.button-bg2 {
-  width: 93px;
-  height: 36px;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+.form_button--validate{
   background-color: #17998c;
-  color: white;
   margin: 28px 0px 50px 17px;
   font-size: 14px;
   font-weight: 500;
