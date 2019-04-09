@@ -38,23 +38,28 @@
       </mat-form-field>
 
 
-      <mat-checkbox labelPosition="after" appearance="standard">
+      <mat-checkbox labelPosition="after" appearance="standard" [(ngModel)]="checked">
         <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
       </mat-checkbox>
+      <div class="form-hidden" *ngIf="checked">
+        <mat-form-field appearance="standard" floatLabel="auto">
+          <input matInput placeholder="Nom d'artiste">
+        </mat-form-field>
 
-      <mat-form-field appearance="standard" floatLabel="auto">
-        <input matInput placeholder="Nom d'artiste">
-      </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput placeholder="Description"></textarea>
-      </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Description"></textarea>
+        </mat-form-field>
+      </div>
 
-      <form class="">
-        <button (click)="cancel()" mat-button class="button-bg">Annuler</button>
-        <button (click)="goToLogPage()" mat-button class="button-bg2">Valider</button>
-      </form>
+        <p>
+        <button (click)="cancel()" mat-button class="form_button form_button--cancel" >Annuler</button>
+        <button (click)="goToLogPage()" mat-button class="form_button form_button--validate">Valider</button>
+        </p>
 
-    </div>
+
+
+
+  </div>
   </div>
 </div>

@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   isHidden = true;
   email = new FormControl('', [Validators.required, Validators.email]);
   title = 'Private Showcase';
+  checked = false;
 
   constructor(private router: Router) {
   }
