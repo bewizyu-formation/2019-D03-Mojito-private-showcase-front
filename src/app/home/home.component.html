@@ -1,1 +1,61 @@
-<h3> Home </h3>
+<mat-nav-list class="navbar navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand">{{title}}</a>
+
+    <!--menu-->
+
+    <button class="menuIcon" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>move_to_inbox</mat-icon>
+        <span>Accueil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>send</mat-icon>
+        <span>Evènement</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>group</mat-icon>
+        <span>Contact</span>
+      </button>
+    </mat-menu>
+
+    <!-- menu setting-->
+
+    <button class="settingsIcon" mat-icon-button [matMenuTriggerFor]="settings">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #settings="matMenu" xPosition="before">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Profil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Déconnection</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-nav-list>
+
+<div class="container">
+  <div class="subContainer">
+    <div class="containerOpt">
+      <img class="imageSub" src="../../assets/images/circle-image.jpg">
+      <p class="title">Musiciens</p>
+      <p class="subtitle">Proposez des concert privés</p>
+    </div>
+    <div class="containerOpt">
+      <img class="imageSub" src="../../assets/images/spectateurs.jpg">
+      <p class="title">Spectateurs</p>
+      <p class="subtitle">Vivez une expérience unique</p>
+    </div>
+    <div class="containerOpt">
+      <img class="imageSub" src="../../assets/images/organisateurs.jpg">
+      <p class="title">Organisateurs</p>
+      <p class="subtitle">Partager vos coups de coeurs</p>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,6 @@
+.navbar-brand{
+  padding: 13px 495px 19px 495px;
+}
 .container{
   background-color: rgb(122, 128, 137);
   display:flex;
@@ -5,11 +8,6 @@
   height: 786px;
   margin:auto;
   flex-direction: column;
-}
-.banniere{
-  width: 1280px;
-  height: 426px;
-  object-fit: contain;
 }
 .subContainer{
   display: flex;
@@ -52,7 +50,6 @@
    color:white;
  }
 
-
 .button-bg2 {
   width: 93px;
   height: 36px;
@@ -63,4 +60,7 @@
   margin: 28px 0 50px 17px;
   font-size: 14px;
   font-weight: 500;
+}
+.backIcon{
+  margin-top: 8px;
 }
