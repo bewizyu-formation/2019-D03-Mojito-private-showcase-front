@@ -1,3 +1,6 @@
+.navbar-brand{
+  padding: 13px 495px 19px 495px;
+}
 .container{
   background-color: rgb(122, 128, 137);
   display:flex;
@@ -6,7 +9,6 @@
   margin:auto;
   flex-direction: column;
 }
-
 .subContainer{
   display: flex;
   width: 1280px;
@@ -46,6 +48,10 @@
 
 .form_button--cancel{
   background-color: #4a4a4a;
+}
+
+.backIcon{
+  margin-top: 8px;
 }
 
 .form_button--validate{

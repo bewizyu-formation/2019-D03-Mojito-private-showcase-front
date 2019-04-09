@@ -24,7 +24,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatMenuModule,
   MatSelectModule
 } from '@angular/material';
 
@@ -50,7 +50,8 @@ import {
     MatIconModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},

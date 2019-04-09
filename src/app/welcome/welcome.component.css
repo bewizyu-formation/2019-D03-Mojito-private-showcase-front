@@ -1,24 +1,42 @@
-.container {
-  background-color: rgb(122, 128, 137);
-  color: #ffffff;
+.navbar-brand{
+  padding: 13px 495px 19px 495px;
+}
+.log {
   display: flex;
-  width: 1280px;
-  height: 786px;
-  flex-direction: column;
-  margin: auto;
+  position: relative;
+  align-items: center;
+  margin: 0 5px 0 1052px;
+  color: #ffffff;
+  background-color: #4a4a4a;
+  border: #4a4a4a;
 }
 
-.banniere {
-  width: 1280px;
-  height: 426px;
-  object-fit: contain;
+.sign {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-right: 32px;
+  color: #ffffff;
+  background-color: #4a4a4a;
+  border: #4a4a4a;
+}
+
+.pipe {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-weight: bold;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .description {
   font-size: 22px;
   margin: 0 200px 0 201px;
 }
-
+.container{
+  color: #ffffff;
+}
 .subDescription {
   margin-left: 201px;
 }
