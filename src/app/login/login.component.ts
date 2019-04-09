@@ -1,7 +1,9 @@
 
-import {Component, OnInit} from '@angular/core';
-import {PATH_HOME, PATH_WELCOME} from '../app.routes.constante';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { PATH_HOME, PATH_WELCOME, PATH_LOGIN } from '../app.routes.constante';
+import { Router } from '@angular/router';
+import { UserService } from '../user/user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private router: Router) {
+  errorMessage: string;
+  loginForm: FormGroup;
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router) {
+    this.loginForm = formBuilder.group({
+      login: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
+
   title = 'Private Showcase';
   isHidden = true;
 
@@ -20,14 +28,49 @@ export class LoginComponent implements OnInit {
   }
 
   goToHomePage() {
-    this.router.navigate([PATH_HOME]);
+
   }
 
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
 
-  ngOnInit() {
+ 
+
+
+
+  get login() {
+    return this.loginForm.get('login');
   }
 
-}
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+
+  ngOnInit() {
+    
+  }
+
+  userLogin() : void {
+    this.userService.login(this.login.value, this.password.value).then(
+
+      (res:any)=>{ this.router.navigate([PATH_HOME]); },
+
+      msg =>{
+        this.router.navigate([PATH_LOGIN]);
+      }
+    );
+      
+      
+      
+     
+    }
+  }
+  
+  
+      
+  
+ 
+
+
