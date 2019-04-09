@@ -5,20 +5,19 @@
   background-color: rgb(122, 128, 137);
   display:flex;
   width: 1280px;
-  height: 786px;
+  height: 1000px;
   margin:auto;
   flex-direction: column;
 }
 .subContainer{
   display: flex;
   width: 1280px;
-  height: 500px;
 }
+
 .containerOpt{
   display:flex;
   flex-direction: column;
-  margin: auto;
-  align-items: center;
+  margin: 50px auto 100px auto;
   background-color: #e7e6e6;
   box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.3), 0 0 24px 0 rgba(0, 0, 0, 0.23);
   width: 396px;
@@ -41,23 +40,13 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
-.button-bg{
-   width: 93px;
-   height: 36px;
-   border-radius: 2px;
-   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-   background-color: #4a4a4a;
-   color:white;
- }
+.form_button--cancel{
+  background-color: #4a4a4a;
+}
 
-.button-bg2 {
-  width: 93px;
-  height: 36px;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+.form_button--validate{
   background-color: #17998c;
-  color: white;
-  margin: 28px 0 50px 17px;
+  margin: 28px 0px 50px 17px;
   font-size: 14px;
   font-weight: 500;
 }
