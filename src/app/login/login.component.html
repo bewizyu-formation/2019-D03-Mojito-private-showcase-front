@@ -16,20 +16,25 @@
 
     <div class="containerOpt">
       <p class="form-title">Se connecter</p>
-
+      <span class="text-dange">{{errorMessage}}</span>
+      <form class="" [formGroup]="loginForm" (ngSubmit)="userLogin()" novalidate>
       <mat-form-field appearance="standard" floatLabel="=auto">
-        <input matInput placeholder="Identifiant">
+        <input matInput placeholder="Identifiant" formControlName="login">
       </mat-form-field>
-
+    
+    <div>
       <mat-form-field appearance="standard">
-        <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'">
+        <input matInput placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'" formControlName="password">
         <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
-      
-      <p>
+    </div>
+ 
+     <p>
       <button (click)="cancel()" mat-button class="form_button form_button--cancel">Annuler</button>
-      <button (click)="goToHomePage()" mat-button class="form_button form_button--validate">Valider</button>
-        </p>
+      <button mat-button class="form_button form_button--validate" (ngSubmit)="userLogin()">Valider</button>
+     </p>
+        
+      </form>
 
     </div>
   </div>
