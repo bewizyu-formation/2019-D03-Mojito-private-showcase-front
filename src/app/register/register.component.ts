@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   title = 'Private Showcase';
   checked = false;
   myControl = new FormControl();
-  options: string[] = ['Lyon','Marseille – Aix-en-Provence','Toulouse','Bordeaux','Nice','Strasbourg','Rennes'];
+  options: string[] = ['Lyon', 'Marseille – Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
   filteredOptions: Observable<string[]>;
 
   constructor(private router: Router) {
