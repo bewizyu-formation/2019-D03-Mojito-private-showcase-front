@@ -2,8 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 import {Router} from '@angular/router';
-import {PATH_LOGIN, PATH_REGISTER} from './app.routes.constante';
-import {UserRepository} from './user/user.repository';
+
 
 
 @Component({

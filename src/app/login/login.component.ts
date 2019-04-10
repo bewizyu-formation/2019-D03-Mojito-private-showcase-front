@@ -2,10 +2,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PATH_HOME, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
-import {UserRepository} from '../user/user.repository';
 import {UserService} from '../user/user.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {$} from "protractor";
 
 @Component({
   selector: 'app-login',
@@ -16,9 +14,7 @@ export class LoginComponent implements OnInit {
 
   errorMessage: string;
 
- // usernameCtrl = new FormControl('', [Validators.required]);
- // passwordCtrl = new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern(this.passwordPattern)]);
-  loginForm : FormGroup;
+  loginForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
   title = 'Private Showcase';
@@ -26,10 +22,14 @@ export class LoginComponent implements OnInit {
 
 
 
-   constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
-    this.usernameCtrl = fb.control('', [Validators.required]);
-    this.passwordCtrl = fb.control('', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])' )]);
-      this.loginForm = fb.group({
+ constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
+   this.usernameCtrl = fb.control('', [Validators.required]);
+   this.passwordCtrl = fb.control('', [
+     Validators.required,
+     Validators.minLength(8),
+     Validators.pattern('(?=.*\d)(?=.*[a-z])(?=.*[A-Z])' )
+   ]);
+   this.loginForm = fb.group({
       username: this.usernameCtrl,
       password: this.passwordCtrl
     });
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   getErrorMessage() {
     return this.password.hasError('required') ? 'Le mot de passe est obligatoire' :
-         '';
+      '';
   }
 
   cancel() {
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
 
   get password() {
     return this.loginForm.get('password');
-}
+  }
 
 
   userLogin() {
@@ -78,9 +78,6 @@ export class LoginComponent implements OnInit {
         }
       });
   }
-
-
-
 
   ngOnInit() {
   }

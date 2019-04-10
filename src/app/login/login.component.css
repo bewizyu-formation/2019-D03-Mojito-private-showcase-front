@@ -59,7 +59,8 @@
   font-size: 12px;
 }
 
-
-.input-angular.ng-invalid.ng-dirty {
-
+.test-danger{
+  color:red;
+  font-size: 12px;
 }
+
