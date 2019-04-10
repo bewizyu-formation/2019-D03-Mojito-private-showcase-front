@@ -52,6 +52,7 @@ export class RegisterComponent implements OnInit {
       codeDept: this.codeDeptCtrl
     });
   }
+
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
