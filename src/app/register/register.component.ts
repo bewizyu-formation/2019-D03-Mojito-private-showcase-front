@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {PATH_WELCOME} from '../app.routes.constante';
+import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {Observable} from 'rxjs';
