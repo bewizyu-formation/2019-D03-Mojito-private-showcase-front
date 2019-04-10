@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   title = 'Private Showcase';
   checked = false;
 
+  registerForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
   emailCtrl: FormControl;
@@ -23,23 +24,24 @@ export class RegisterComponent implements OnInit {
   codeVilleCtrl: FormControl;
   nomDeptCtrl: FormControl;
   codeDeptCtrl: FormControl;
-  userForm: FormGroup;
+
+
 
   constructor(private router: Router, private user: UserService, private fb: FormBuilder) {
     // creation des controles
-    this.usernameCtrl = fb.control('');
-    this.passwordCtrl = fb.control('');
+    this.usernameCtrl = fb.control('', [Validators.required]);
+    this.passwordCtrl = fb.control('', [Validators.required]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
-    this.nomVilleCtrl = fb.control('');
-    this.codeVilleCtrl = fb.control('');
-    this.nomDeptCtrl = fb.control('');
-    this.codeDeptCtrl = fb.control('');
+    this.nomVilleCtrl = fb.control('', [Validators.required]);
+    this.codeVilleCtrl = fb.control('', [Validators.required]);
+    this.nomDeptCtrl = fb.control('', [Validators.required]);
+    this.codeDeptCtrl = fb.control('', [Validators.required]);
     // création du groupe
-    this.userForm = fb.group({
-      username: this.usernameCtrl.value,
-      password: this.passwordCtrl.value,
-      email: this.emailCtrl.value,
-      nomVille: this.nomVilleCtrl.value,
+    this.registerForm = fb.group({
+      username: this.usernameCtrl,
+      password: this.passwordCtrl,
+      email: this.emailCtrl,
+      nomVille: this.nomVilleCtrl,
       codeVille: this.codeVilleCtrl,
       nomDept: this.nomDeptCtrl,
       codeDept: this.codeDeptCtrl
@@ -68,7 +70,7 @@ export class RegisterComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log(this.userForm.value);
+    console.log(this.registerForm.value);
   }
 
   ngOnInit() {

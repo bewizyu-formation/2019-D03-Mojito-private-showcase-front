@@ -12,56 +12,59 @@
     <img src="../../assets/images/28045370998-7-fd-65-a-69-b-3-k.jpg">
   </div>
   <div class="subContainer">
-<form (ngSubmit)="handleSubmit()" [formGroup]="userForm">
+
     <div class="containerOpt">
       <p class="form-title">Formulaire d'inscription</p>
 
-      <mat-form-field appearance="standard" floatLabel="=auto">
-        <input matInput placeholder="Identifiant" formControlName="username">
-      </mat-form-field>
+      <form (ngSubmit)="handleSubmit()" [formGroup]="registerForm">
+        <mat-form-field appearance="standard" floatLabel="=auto">
+          <input matInput placeholder="Identifiant" formControlName="username">
+          <mat-error *ngIf="registerForm.get('username').hasError('required')">L'identifiant est obligatoire</mat-error>
+        </mat-form-field>
 
-      <mat-form-field appearance="standard">
-        <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'" formControlName="password">
-        <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </mat-form-field>
+        <mat-form-field appearance="standard">
+          <input matInput  placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'" formControlName="password">
 
-      <mat-form-field appearance="standard">
-        <input matInput  placeholder="Confirmez le mot de passe" [type]="isHidden ? 'password' : 'text'">
-        <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </mat-form-field>
+          <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
 
-      <mat-form-field appearance="standard">
-        <input matInput placeholder="Email" formControlName="email" required>
-        <mat-error *ngIf="emailCtrl.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+        <mat-form-field appearance="standard">
+          <input matInput  placeholder="Confirmez le mot de passe" [type]="isHidden ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
 
-      <!-- entrée Ville à changer pour un autocomplete -->
-      <mat-form-field appearance="standard" floatLabel="auto">
-        <input matInput placeholder="Ville" formControlName="nomVille">
-      </mat-form-field>
+        <mat-form-field appearance="standard">
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-error *ngIf="emailCtrl.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
 
-      <mat-checkbox labelPosition="after" appearance="standard" [(ngModel)]="checked">
-        <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
-      </mat-checkbox>
-      <div class="form-hidden" *ngIf="checked">
+        <!-- entrée Ville à changer pour un autocomplete -->
         <mat-form-field appearance="standard" floatLabel="auto">
-          <input matInput placeholder="Nom d'artiste">
+          <input matInput placeholder="Ville" formControlName="nomVille">
         </mat-form-field>
 
+        <mat-checkbox labelPosition="after" appearance="standard" [(ngModel)]="checked">
+          <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
+        </mat-checkbox>
+        <div class="form-hidden" *ngIf="checked">
+          <mat-form-field appearance="standard" floatLabel="auto">
+            <input matInput placeholder="Nom d'artiste">
+          </mat-form-field>
 
-        <mat-form-field>
-          <textarea matInput placeholder="Description"></textarea>
-        </mat-form-field>
-      </div>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Description"></textarea>
+          </mat-form-field>
+        </div>
 
         <p>
-        <button (click)="cancel()" mat-button class="form_button form_button--cancel" >Annuler</button>
-        <button (click)="goToLogPage()" mat-button class="form_button form_button--validate">Valider</button>
+          <button (click)="cancel()" mat-button class="form_button form_button--cancel" >Annuler</button>
+          <button (click)="goToLogPage()" mat-button class="form_button form_button--validate">Valider</button>
         </p>
 
-
+     </form>
     </div>
-  </form>
+
   </div>
-  </div>
+</div>
 
