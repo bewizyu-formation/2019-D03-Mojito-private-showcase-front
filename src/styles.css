@@ -31,6 +31,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-nav-list{
   color: #ffffff;
 }
+
+.mat-form-field{
+  width: 100%;
+}
+
 .container {
   background-color: rgb(122, 128, 137);
   display: flex;
@@ -48,4 +53,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color:white;
   padding-bottom: 30px;
 }
+
 
