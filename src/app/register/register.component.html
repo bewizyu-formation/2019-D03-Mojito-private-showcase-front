@@ -51,15 +51,15 @@
           </mat-form-field>
         </div>
 
-        <mat-checkbox labelPosition="after" appearance="standard" [(ngModel)]="checked">
+        <mat-checkbox labelPosition="after"  >
           <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
         </mat-checkbox>
-          <div class="form-hidden" *ngIf="checked">
+          <div *ngIf="checkboxChecked" class="form-hidden" >
             <mat-form-field appearance="standard" floatLabel="auto">
-              <input matInput placeholder="Nom d'artiste" formControlName="artiste">
+              <input matInput placeholder="Nom d'artiste">
             </mat-form-field>
             <mat-form-field>
-              <textarea matInput placeholder="Description" formControlName="description"></textarea>
+              <textarea matInput placeholder="Description"></textarea>
             </mat-form-field>
           </div>
 

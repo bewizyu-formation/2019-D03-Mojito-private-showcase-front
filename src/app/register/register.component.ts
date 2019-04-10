@@ -16,7 +16,7 @@ import {map, startWith} from 'rxjs/operators';
 export class RegisterComponent implements OnInit {
   isHidden = true;
   title = 'Private Showcase';
-  checked: false;
+  checkboxChecked: false;
   myControl = new FormControl();
   options: string[] = ['Lyon', 'Marseille – Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
   filteredOptions: Observable<string[]>;
