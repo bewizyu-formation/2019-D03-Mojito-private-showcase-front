@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
+
   title = 'Private Showcase';
   isHidden = true;
 

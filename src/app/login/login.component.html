@@ -1,4 +1,3 @@
-
 <mat-nav-list class="navbar navbar-fixed-top">
   <div class="navbar-header">
     <a class="navbar-brand">{{title}}</a>
@@ -16,6 +15,7 @@
 
     <div class="containerOpt">
       <p class="form-title">Se connecter</p>
+
       <span class="text-danger">{{errorMessage}}</span>
       <form class="" [formGroup]="loginForm" (ngSubmit)="userLogin()" >
         <mat-form-field appearance="standard" floatLabel="=auto">
@@ -23,7 +23,7 @@
           <mat-error *ngIf="loginForm.get('username').hasError('required')">L'identifiant est obligatoire</mat-error>
         </mat-form-field>
 
-        <div>
+
           <mat-form-field appearance="standard" hintLabel="Min 8 caractères">
             <input matInput placeholder="Mot de passe *" [type]="isHidden ? 'password' : 'text'" formControlName="password">
             <mat-error *ngIf="password.dirty">{{getErrorMessage()}}</mat-error>
@@ -31,7 +31,7 @@
             <mat-error *ngIf=" loginForm.get('password').hasError('pattern')">Le mot de passe doit contenir une Majuscule, une minuscule et un nombre</mat-error>
             <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
-        </div>
+
 
         <p>
           <button (click)="cancel()" mat-button class="form_button form_button--cancel">Annuler</button>
