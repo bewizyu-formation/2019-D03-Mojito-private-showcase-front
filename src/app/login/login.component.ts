@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
 
   getErrorMessage() {
     return this.password.hasError('required') ? 'Le mot de passe est obligatoire' :
-   //  this.password.hasError('pattern') ? 'Le mot de passe doit contenir une Majuscule, une minuscule et un nombre' :
          '';
   }
 
