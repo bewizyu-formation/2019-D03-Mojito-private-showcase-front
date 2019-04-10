@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
+import {PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {Observable} from 'rxjs';
@@ -14,12 +14,17 @@ import {map, startWith} from 'rxjs/operators';
 })
 
 export class RegisterComponent implements OnInit {
+
+  checkboxChecked: boolean;
+
   isHidden = true;
+  isDisplay: boolean;
   title = 'Private Showcase';
-  checkboxChecked: false;
+
   myControl = new FormControl();
   options: string[] = ['Lyon', 'Marseille – Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
   filteredOptions: Observable<string[]>;
+
 
   registerForm: FormGroup;
   usernameCtrl: FormControl;
@@ -29,6 +34,7 @@ export class RegisterComponent implements OnInit {
   codeVilleCtrl: FormControl;
   nomDeptCtrl: FormControl;
   codeDeptCtrl: FormControl;
+  checkedCtrl: FormControl;
 
 
 
@@ -49,7 +55,8 @@ export class RegisterComponent implements OnInit {
       nomVille: this.nomVilleCtrl,
       codeVille: this.codeVilleCtrl,
       nomDept: this.nomDeptCtrl,
-      codeDept: this.codeDeptCtrl
+      codeDept: this.codeDeptCtrl,
+      checked: this.checkedCtrl
     });
   }
 
@@ -72,6 +79,16 @@ export class RegisterComponent implements OnInit {
         '';
   }
 
+
+  handleDisplay() {
+    if (this.checkboxChecked = true) {
+    // this.isDisplay = true;
+    // } else if (this.checkboxChecked = false) {
+    //   this.isDisplay = false;
+      this.isDisplay = !this.isDisplay;
+    }
+
+  }
 
   handleSubmit() {
     console.log(this.registerForm.value);
