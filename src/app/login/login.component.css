@@ -33,7 +33,7 @@
 
 .form-title{
   text-align: center;
-  padding: 20px;
+  padding-top: 20px;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
@@ -53,3 +53,14 @@
 .backIcon{
   margin-top: 8px;
 }
+
+.text-alert{
+  color:red;
+  font-size: 12px;
+}
+
+.test-danger{
+  color:red;
+  font-size: 12px;
+}
+

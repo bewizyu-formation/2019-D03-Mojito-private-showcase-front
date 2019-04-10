@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 
@@ -8,6 +8,7 @@ import {HelloRepository} from './hello/hello.repository';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'Private Showcase';
   token: string;
 
@@ -17,7 +18,7 @@ export class AppComponent {
   constructor(private userService: UserService, private hello: HelloRepository) {
   }
 
-  handleSampleLogin() {
+  handleLogin() {
     this.userService
       .login('user', 'user')
       .then((token: string) => this.token = token,

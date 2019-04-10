@@ -10,7 +10,6 @@ import {ErrorInterceptorService} from './services/interceptors/error-interceptor
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
-import { FormArtistComponent } from './form-artist/form-artist.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
@@ -31,7 +30,6 @@ import {
   declarations: [
     AppComponent,
     RegisterComponent,
-    FormArtistComponent,
     LoginComponent,
     HomeComponent,
     WelcomeComponent
