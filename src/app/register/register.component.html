@@ -41,7 +41,7 @@
         <div class="example-form">
           <mat-form-field appearance="standard" class="example-full-width">
             <input type="text" placeholder="Ville" aria-label="Number"
-                   matInput [formControl]="myControl"
+                   matInput
                    [matAutocomplete]="auto" formControlName="nomVille">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -52,6 +52,7 @@
         </div>
 
         <mat-checkbox labelPosition="after" appearance="standard"  FormControlName="checked"  (change)="handleDisplay()" >
+
           <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
         </mat-checkbox>
 

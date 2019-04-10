@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   title = 'Private Showcase';
 
   myControl = new FormControl();
-  options: string[] = ['Lyon', 'Marseille – Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
+  options: string[] = ['Lyon', 'Nantes', 'Marseille', 'Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
   filteredOptions: Observable<string[]>;
 
 
@@ -67,10 +67,10 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
   goToLogPage() {
-    this.user.register(`${this.usernameCtrl}`, `${this.passwordCtrl}`, `${this.emailCtrl}`,
-      `${this.nomVilleCtrl}`,
-      'codeVille', 'nomDept', 'codeDept');
-    // .then((data) => {this.router.navigate([PATH_LOGIN]); });
+    this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
+      `${this.nomVilleCtrl.value}`,
+      'codeVille', 'nomDept', 'codeDept')
+      .then((data) => {this.router.navigate([PATH_LOGIN]); });
   }
 
   getErrorMessage() {
