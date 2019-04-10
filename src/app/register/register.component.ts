@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 
 @Component({
@@ -15,6 +17,9 @@ export class RegisterComponent implements OnInit {
   isHidden = true;
   title = 'Private Showcase';
   checked = false;
+  myControl = new FormControl();
+  options: string[] = ['Lyon', 'Marseille – Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
+  filteredOptions: Observable<string[]>;
 
   registerForm: FormGroup;
   usernameCtrl: FormControl;
@@ -47,15 +52,12 @@ export class RegisterComponent implements OnInit {
       codeDept: this.codeDeptCtrl
     });
   }
-
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
-
   cancel() {
     this.router.navigate([PATH_WELCOME]);
   }
-
   goToLogPage() {
     this.user.register(`${this.usernameCtrl}`, `${this.passwordCtrl}`, `${this.emailCtrl}`,
       `${this.nomVilleCtrl}`,
@@ -69,11 +71,21 @@ export class RegisterComponent implements OnInit {
         '';
   }
 
+
   handleSubmit() {
     console.log(this.registerForm.value);
   }
 
-  ngOnInit() {
-  }
 
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
 }
