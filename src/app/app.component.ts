@@ -1,9 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
-import {Router} from '@angular/router';
-
-
 
 @Component({
   selector: 'app-root',
@@ -18,7 +15,7 @@ export class AppComponent {
   selecetdFile: File;
   imagePreview: string;
 
-  constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
+  constructor(private userService: UserService, private hello: HelloRepository) {
   }
 
   handleLogin() {

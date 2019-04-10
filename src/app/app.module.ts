@@ -19,8 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCheckboxModule,
-  MatFormFieldModule,
+  MatCheckboxModule, MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule,
@@ -40,16 +39,18 @@ import {
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
-    MatListModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatSelectModule
+
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},

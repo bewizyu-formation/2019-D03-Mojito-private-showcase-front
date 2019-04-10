@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
+import {UserService} from '../user/user.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-register',
@@ -13,15 +15,44 @@ import {map, startWith} from 'rxjs/operators';
 
 export class RegisterComponent implements OnInit {
   isHidden = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
   title = 'Private Showcase';
   checked = false;
   myControl = new FormControl();
   options: string[] = ['Lyon', 'Marseille – Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
   filteredOptions: Observable<string[]>;
 
-  constructor(private router: Router) {
+  registerForm: FormGroup;
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  emailCtrl: FormControl;
+  nomVilleCtrl: FormControl;
+  codeVilleCtrl: FormControl;
+  nomDeptCtrl: FormControl;
+  codeDeptCtrl: FormControl;
+
+
+
+  constructor(private router: Router, private user: UserService, private fb: FormBuilder) {
+    // creation des controles
+    this.usernameCtrl = fb.control('', [Validators.required]);
+    this.passwordCtrl = fb.control('', [Validators.required]);
+    this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
+    this.nomVilleCtrl = fb.control('', [Validators.required]);
+    this.codeVilleCtrl = fb.control('', [Validators.required]);
+    this.nomDeptCtrl = fb.control('', [Validators.required]);
+    this.codeDeptCtrl = fb.control('', [Validators.required]);
+    // création du groupe
+    this.registerForm = fb.group({
+      username: this.usernameCtrl,
+      password: this.passwordCtrl,
+      email: this.emailCtrl,
+      nomVille: this.nomVilleCtrl,
+      codeVille: this.codeVilleCtrl,
+      nomDept: this.nomDeptCtrl,
+      codeDept: this.codeDeptCtrl
+    });
   }
+
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
@@ -29,14 +60,24 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
   goToLogPage() {
-    this.router.navigate([PATH_LOGIN]);
+    this.user.register(`${this.usernameCtrl}`, `${this.passwordCtrl}`, `${this.emailCtrl}`,
+      `${this.nomVilleCtrl}`,
+      'codeVille', 'nomDept', 'codeDept');
+    // .then((data) => {this.router.navigate([PATH_LOGIN]); });
   }
 
   getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+    return this.emailCtrl.hasError('required') ? 'You must enter a value' :
+      this.emailCtrl.hasError('email') ? 'Not a valid email' :
         '';
   }
+
+
+  handleSubmit() {
+    console.log(this.registerForm.value);
+  }
+
+
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
