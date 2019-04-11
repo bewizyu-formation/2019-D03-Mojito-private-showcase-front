@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
   title = 'Private Showcase';
-  redirectUrl: string;
 
   constructor(private router: Router) { }
   goToLogPage() {
