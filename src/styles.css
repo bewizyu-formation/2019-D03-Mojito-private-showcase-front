@@ -45,7 +45,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: auto;
 }
 
-.form_button{
+.header_button{
+  display: flex;
+  position: relative;
+  align-items: center;
+  color: #ffffff;
+  background-color: #4a4a4a;
+  border: #4a4a4a;
+}
+
+.main_button{
   width: 93px;
   height: 36px;
   border-radius: 2px;
@@ -53,5 +62,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color:white;
   padding-bottom: 30px;
 }
+
+
 
 
