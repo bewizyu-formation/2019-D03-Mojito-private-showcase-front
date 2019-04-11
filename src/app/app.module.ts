@@ -25,6 +25,9 @@ import {
   MatListModule, MatMenuModule,
   MatSelectModule
 } from '@angular/material';
+import {UserService} from './user/user.service';
+import {AuthGuard} from './auth/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +60,7 @@ import {
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
+    [UserService, AuthGuard],
   ],
   bootstrap: [AppComponent]
 })

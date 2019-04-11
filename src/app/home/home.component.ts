@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {PATH_WELCOME} from '../app.routes.constante';
+import {UserService} from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'Artistes dans votre département';
-  constructor() { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+  }
+
+  Logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate([PATH_WELCOME]);
   }
 
 }
