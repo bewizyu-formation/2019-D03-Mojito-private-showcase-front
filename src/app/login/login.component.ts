@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
    this.passwordCtrl = fb.control('', [
      Validators.required,
      Validators.pattern('^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$')
+
    ]);
    this.loginForm = fb.group({
       username: this.usernameCtrl,
