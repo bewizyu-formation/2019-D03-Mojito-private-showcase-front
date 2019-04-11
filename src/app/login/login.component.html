@@ -24,7 +24,7 @@
         </mat-form-field>
 
 
-          <mat-form-field appearance="standard" hintLabel="Min 8 caractères">
+          <mat-form-field appearance="standard">
             <input matInput placeholder="Mot de passe *" [type]="isHidden ? 'password' : 'text'" formControlName="password">
             <mat-error *ngIf="password.dirty">{{getErrorMessage()}}</mat-error>
             <mat-error *ngIf="loginForm.get('password').hasError('minlength')">Le password doit contenir au moins 8 caractères</mat-error>
@@ -35,7 +35,7 @@
 
         <p>
           <button (click)="cancel()" mat-button class="form_button form_button--cancel">Annuler</button>
-          <button (ngSubmit)="userLogin()" mat-button class="form_button form_button--validate">Valider</button>
+          <button (ngSubmit)="userLogin()" mat-button class="form_button form_button--validate" [disabled]="loginForm.invalid">Valider</button>
         </p>
 
       </form>
