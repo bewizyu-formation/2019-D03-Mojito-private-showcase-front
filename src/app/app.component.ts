@@ -27,18 +27,10 @@ export class AppComponent {
       );
   }
 
-  handleCheckUserRole() {
+ public handleUserWithTokenforPageAccess() {
     this.hello.testApiWithUserRole()
       .subscribe(
         response => console.log('Check USER ROLE : ', response.message),
-      );
-  }
-
- public handleUserForPageHome() {
-   // this.router.navigate([PATH_HOME])
-    this.hello.testApiWithUserRole()
-      .subscribe(
-        data => console.log(data),
         err => console.log(err)
       );
   }

@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(req.clone());
     }
 
-    if (localStorage.getItem('currentUser')) {
+    if (this.userService.token) {
       const cloned = req.clone({
         setHeaders: {
           Authorization: `Bearer ${this.userService.token}`
