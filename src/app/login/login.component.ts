@@ -77,7 +77,6 @@ export class LoginComponent implements OnInit {
           this.errorMessage = 'L\' identifiant ou le mot de passe est invalide';
         }
       });
-
   }
 
   ngOnInit() {
