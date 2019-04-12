@@ -98,6 +98,7 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
+    // retourne la liste des communes lor de la saisie de l'élément 'Ville' du formulaire
     this.nomVilleCtrl.valueChanges.subscribe(value => {
       
       this.geo.getCommune( value)
@@ -105,7 +106,6 @@ export class RegisterComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.options = data;
-        console.log("______code = " + this.options[0].codeDepartement );
         }, error => {
         console.log(error);
       });
