@@ -24,13 +24,16 @@
         </mat-form-field>
 
         <mat-form-field appearance="standard">
+
           <input matInput placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'" formControlName="password">
           <mat-error *ngIf="passwordCtrl.hasError('pattern')">Le mot de passe nécessite au moins 8 caractères, une Majuscule, une
             minuscule et un chiffre</mat-error>
+
           <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
+
           <input matInput placeholder="Confirmez le mot de passe" [type]="isHidden ? 'password' : 'text'"
                  formControlName="password">
           <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -42,17 +45,22 @@
         </mat-form-field>
 
         <div class="example-form">
-          <mat-form-field appearance="standard" class="example-full-width">
-            <input type="text" placeholder="Ville" aria-label="Number"
+          <mat-form-field appearance="standard" class="example-full-width"  >
+            <input type="text" placeholder="Ville" aria-label="Number"  
                    matInput
-                   [matAutocomplete]="auto" formControlName="nomVille">
+                  
+                   [matAutocomplete]="auto" formControlName="nomVille"/>
+        
+   
+
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
+              <mat-option *ngFor="let option of options" [value]="option.nom">
+                {{option.nom}}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
-        </div>
+         </div>
+
 
         <mat-checkbox labelPosition="after" appearance="standard" FormControlName="checked" (change)="handleDisplay()">
 

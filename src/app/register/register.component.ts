@@ -5,6 +5,12 @@ import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {Commune } from '../model/commune';
+
+import {GeoRepository} from '../user/geo.repository';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { stringify } from '@angular/core/src/util';
+import { Departement } from '../model/departement';
 
 
 @Component({
@@ -17,28 +23,28 @@ export class RegisterComponent implements OnInit {
 
   errorMessage;
   checkboxChecked: boolean;
+  options: Commune[];
+  commune: Commune;
+  departement: Departement[];
+  codeVille: String;
+  nomDept: String;
+  codeDept: String;
 
   isHidden = true;
   isDisplay: boolean;
   title = 'Private Showcase';
-
-  myControl = new FormControl();
-  options: string[] = ['Lyon', 'Nantes', 'Marseille', 'Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
-  filteredOptions: Observable<string[]>;
-
 
   registerForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
   emailCtrl: FormControl;
   nomVilleCtrl: FormControl;
-  codeVilleCtrl: FormControl;
-  nomDeptCtrl: FormControl;
-  codeDeptCtrl: FormControl;
   checkedCtrl: FormControl;
 
 
-  constructor(private router: Router, private userService: UserService, private fb: FormBuilder) {
+  constructor(private router: Router, private user: UserService,
+     private fb: FormBuilder, private geo: GeoRepository ) {
+
     // creation des controles
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
@@ -46,18 +52,13 @@ export class RegisterComponent implements OnInit {
       Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
-    this.codeVilleCtrl = fb.control('', [Validators.required]);
-    this.nomDeptCtrl = fb.control('', [Validators.required]);
-    this.codeDeptCtrl = fb.control('', [Validators.required]);
+
     // création du groupe
     this.registerForm = fb.group({
       username: this.usernameCtrl,
       password: this.passwordCtrl,
       email: this.emailCtrl,
       nomVille: this.nomVilleCtrl,
-      codeVille: this.codeVilleCtrl,
-      nomDept: this.nomDeptCtrl,
-      codeDept: this.codeDeptCtrl,
       checked: this.checkedCtrl
     });
   }
@@ -70,15 +71,20 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
 
+
   userRegister() {
+  // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
+    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value );
+    console.log( this.commune.nom + '  ' + this.commune.codeDepartement );
+  
     this.userService.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
-      `${this.nomVilleCtrl.value}`,
-      'codeVille', 'nomDept', 'codeDept')
+      `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`)
       .then((data) => {
         this.router.navigate([PATH_LOGIN]);
       }, error => {
         this.errorMessage = error.error.error;
       });
+
   }
   getErrorMessage() {
     return this.emailCtrl.hasError('required') ? 'You must enter a value' :
@@ -103,15 +109,19 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-  }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    // retourne la liste des communes lors de la saisie de l'élément 'Ville' du formulaire
+    this.nomVilleCtrl.valueChanges.subscribe(value => {
 
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-  }
+      this.geo.getCommune( value)
+      .pipe()
+      .subscribe(data => {
+        console.log(' =====' + data);
+        this.options = data;
+        }, error => {
+        console.log(error);
+      });
+    });
+
+}
 }
