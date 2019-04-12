@@ -5,6 +5,12 @@ import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {Commune } from '../model/commune';
+
+import {GeoRepository} from '../user/geo.repository';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { stringify } from '@angular/core/src/util';
+import { Departement } from '../model/departement';
 
 
 @Component({
@@ -16,46 +22,40 @@ import {map, startWith} from 'rxjs/operators';
 export class RegisterComponent implements OnInit {
 
   checkboxChecked: boolean;
+  options: Commune[];
+  commune : Commune;
+  departement : Departement[];
+  codeVille:String;
+  nomDept: String;
+  codeDept : String
 
   isHidden = true;
   isDisplay: boolean;
   title = 'Private Showcase';
-
-  myControl = new FormControl();
-  options: string[] = ['Lyon', 'Nantes', 'Marseille', 'Aix-en-Provence', 'Toulouse', 'Bordeaux', 'Nice', 'Strasbourg', 'Rennes'];
-  filteredOptions: Observable<string[]>;
-
 
   registerForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
   emailCtrl: FormControl;
   nomVilleCtrl: FormControl;
-  codeVilleCtrl: FormControl;
-  nomDeptCtrl: FormControl;
-  codeDeptCtrl: FormControl;
   checkedCtrl: FormControl;
 
 
 
-  constructor(private router: Router, private user: UserService, private fb: FormBuilder) {
+  constructor(private router: Router, private user: UserService,
+     private fb: FormBuilder, private geo: GeoRepository ) {
     // creation des controles
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [Validators.required]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
-    this.codeVilleCtrl = fb.control('', [Validators.required]);
-    this.nomDeptCtrl = fb.control('', [Validators.required]);
-    this.codeDeptCtrl = fb.control('', [Validators.required]);
+    
     // création du groupe
     this.registerForm = fb.group({
       username: this.usernameCtrl,
       password: this.passwordCtrl,
       email: this.emailCtrl,
       nomVille: this.nomVilleCtrl,
-      codeVille: this.codeVilleCtrl,
-      nomDept: this.nomDeptCtrl,
-      codeDept: this.codeDeptCtrl,
       checked: this.checkedCtrl
     });
   }
@@ -67,10 +67,12 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
   goToLogPage() {
-    this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
-      `${this.nomVilleCtrl.value}`,
-      'codeVille', 'nomDept', 'codeDept')
-      .then((data) => {this.router.navigate([PATH_LOGIN]); });
+
+
+  this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
+      `${this.nomVilleCtrl.value}`,`${this.options[0].code}`
+      , ' ', `${this.options[0].codeDepartement}`)
+      .then((data) => {this.router.navigate([PATH_LOGIN]); }); 
   }
 
   getErrorMessage() {
@@ -96,14 +98,19 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-  }
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    this.nomVilleCtrl.valueChanges.subscribe(value => {
+      
+      this.geo.getCommune( value)
+      .pipe()
+      .subscribe(data => {
+        console.log(data);
+        this.options = data;
+        console.log("______code = " + this.options[0].codeDepartement );
+        }, error => {
+        console.log(error);
+      });
+    })
 
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-  }
+}
+
 }
