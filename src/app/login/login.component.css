@@ -40,11 +40,11 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
-.form_button--cancel{
+.main_button--cancel{
   background-color: #4a4a4a;
 }
 
-.form_button--validate{
+.main_button--validate{
   background-color: #17998c;
   margin: 28px 0px 50px 17px;
   font-size: 14px;
@@ -59,7 +59,7 @@
   font-size: 12px;
 }
 
-.test-danger{
+.text-danger{
   color:red;
   font-size: 12px;
 }

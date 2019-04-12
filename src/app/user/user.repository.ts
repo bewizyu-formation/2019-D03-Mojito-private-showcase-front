@@ -32,9 +32,7 @@ export class UserRepository {
            codeVille: string, codeDept: string): Promise<any> {
     const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER}?username=${username}
     &password=${password}&email=${email}&nomVille=${nomVille}&codeVille=${codeVille}&codeDept=${codeDept}`;
-
     console.log('url', url);
-
     return this.http.post(url, {},
       {observe: 'response'}
     ).toPromise();

@@ -21,6 +21,7 @@ import { Departement } from '../model/departement';
 
 export class RegisterComponent implements OnInit {
 
+  errorMessage;
   checkboxChecked: boolean;
   options: Commune[];
   commune: Commune;
@@ -41,12 +42,14 @@ export class RegisterComponent implements OnInit {
   checkedCtrl: FormControl;
 
 
-
   constructor(private router: Router, private user: UserService,
      private fb: FormBuilder, private geo: GeoRepository ) {
+
     // creation des controles
     this.usernameCtrl = fb.control('', [Validators.required]);
-    this.passwordCtrl = fb.control('', [Validators.required]);
+    this.passwordCtrl = fb.control('', [
+      Validators.required,
+      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
 
@@ -63,22 +66,26 @@ export class RegisterComponent implements OnInit {
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
+
   cancel() {
     this.router.navigate([PATH_WELCOME]);
   }
-  goToLogPage() {
-    // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
+
+
+  userRegister() {
+  // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
     this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value );
     console.log( this.commune.nom + '  ' + this.commune.codeDepartement );
+  
+    this.userService.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
+      `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`)
+      .then((data) => {
+        this.router.navigate([PATH_LOGIN]);
+      }, error => {
+        this.errorMessage = error.error.error;
+      });
 
-
-
-  this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
-      `${this.commune.nom}`, `${this.commune.code}`
-      , `${this.commune.codeDepartement}`)
-      .then((data) => {this.router.navigate([PATH_LOGIN]); });
   }
-
   getErrorMessage() {
     return this.emailCtrl.hasError('required') ? 'You must enter a value' :
       this.emailCtrl.hasError('email') ? 'Not a valid email' :
@@ -88,9 +95,9 @@ export class RegisterComponent implements OnInit {
 
   handleDisplay() {
     if (this.checkboxChecked = true) {
-    // this.isDisplay = true;
-    // } else if (this.checkboxChecked = false) {
-    //   this.isDisplay = false;
+      // this.isDisplay = true;
+      // } else if (this.checkboxChecked = false) {
+      //   this.isDisplay = false;
       this.isDisplay = !this.isDisplay;
     }
 
@@ -102,6 +109,7 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
+
     // retourne la liste des communes lors de la saisie de l'élément 'Ville' du formulaire
     this.nomVilleCtrl.valueChanges.subscribe(value => {
 
@@ -116,5 +124,4 @@ export class RegisterComponent implements OnInit {
     });
 
 }
-
 }

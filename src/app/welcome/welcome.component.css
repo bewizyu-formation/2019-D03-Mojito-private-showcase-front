@@ -1,24 +1,13 @@
 .navbar-brand{
   padding: 13px 495px 19px 495px;
 }
-.log {
-  display: flex;
-  position: relative;
-  align-items: center;
+.header_button--register {
   margin: 0 5px 0 1052px;
-  color: #ffffff;
-  background-color: #4a4a4a;
-  border: #4a4a4a;
 }
 
-.sign {
-  display: flex;
-  position: relative;
-  align-items: center;
+.header_button--login {
   margin-right: 32px;
-  color: #ffffff;
-  background-color: #4a4a4a;
-  border: #4a4a4a;
+
 }
 
 .pipe {
