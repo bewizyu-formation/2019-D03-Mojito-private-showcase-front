@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
       Validators.required,
-      Validators.pattern('^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$')
+      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')
     ]);
     this.loginForm = fb.group({
       username: this.usernameCtrl,
@@ -66,7 +66,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate([PATH_HOME]);
         localStorage.setItem('currentUser', JSON.stringify(data));
       }, error => {
-        console.log('test', error);
         if (error.status === 404) {
           this.errorMessage = 'Utilisateur inexistant';
         }
