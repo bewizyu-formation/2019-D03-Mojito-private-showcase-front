@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient,HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {EnvironmentService} from '../services/environment.service';
 import {Commune} from '../model/commune';
@@ -18,11 +18,6 @@ export class GeoRepository {
 
 
 
-  /**
-   * 
-   * @param nomVille
-   * 
-   */
   getCommune(nomVille: string): Observable<any> {
 
     const params = new HttpParams().set('nom', nomVille);

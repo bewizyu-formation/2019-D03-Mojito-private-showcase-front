@@ -23,11 +23,11 @@ export class RegisterComponent implements OnInit {
 
   checkboxChecked: boolean;
   options: Commune[];
-  commune : Commune;
-  departement : Departement[];
-  codeVille:String;
+  commune: Commune;
+  departement: Departement[];
+  codeVille: String;
   nomDept: String;
-  codeDept : String
+  codeDept: String;
 
   isHidden = true;
   isDisplay: boolean;
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
     this.passwordCtrl = fb.control('', [Validators.required]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
-    
+
     // création du groupe
     this.registerForm = fb.group({
       username: this.usernameCtrl,
@@ -67,12 +67,16 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
   goToLogPage() {
+    // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
+    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value );
+    console.log( this.commune.nom + '  ' + this.commune.codeDepartement );
+
 
 
   this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
-      `${this.nomVilleCtrl.value}`,`${this.options[0].code}`
-      , ' ', `${this.options[0].codeDepartement}`)
-      .then((data) => {this.router.navigate([PATH_LOGIN]); }); 
+      `${this.commune.nom}`, `${this.commune.code}`
+      , `${this.commune.codeDepartement}`)
+      .then((data) => {this.router.navigate([PATH_LOGIN]); });
   }
 
   getErrorMessage() {
@@ -98,18 +102,18 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
-    // retourne la liste des communes lor de la saisie de l'élément 'Ville' du formulaire
+    // retourne la liste des communes lors de la saisie de l'élément 'Ville' du formulaire
     this.nomVilleCtrl.valueChanges.subscribe(value => {
-      
+
       this.geo.getCommune( value)
       .pipe()
       .subscribe(data => {
-        console.log(data);
+        console.log(' =====' + data);
         this.options = data;
         }, error => {
         console.log(error);
       });
-    })
+    });
 
 }
 
