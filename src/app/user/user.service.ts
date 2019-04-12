@@ -21,30 +21,38 @@ export class UserService {
    * @param password User Password
    */
   login(username: string, password: string): Promise<string> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       this.userRepository
         .login(username, password)
-        .subscribe(
-          (response: HttpResponse<any>) => {
-            this.token = response.headers.get('Authorization');
-            console.log('Response Token : ', this.token);
-            resolve(this.token);
-          },
-          error => reject(error)
-        );
+        .subscribe((response: HttpResponse<any>) => {
+          this.token = response.headers.get('Authorization');
+          console.log('Response Token : ', this.token);
+          resolve(this.token);
+        });
     });
   }
 
   register(username: string, password: string, email: string, nomVille: string,
            codeVille: string, nomDept: string, codeDept: string): Promise<any> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       this.userRepository
         .register(username, password, email, nomVille, codeVille, nomDept, codeDept)
         .then((response: HttpResponse<any>) => {
-            console.log(response);
-            resolve();
-          }, error => reject(error),
-        );
+          console.log(response);
+          resolve();
+        });
     });
   }
+
+  registerArtiste(username: string,namedArtist: string,image:string,grade:number , nomVille: string,longDescription:string,
+shortDescription:string,webSite:string,phoneNumber :string,password: string, email: string): Promise<any> {
+return new Promise((resolve) => {
+this.userRepository.registerArtiste(username,namedArtist,image,grade , nomVille,longDescription,
+  shortDescription,webSite,phoneNumber ,password, email)
+ .then((response: HttpResponse<any>) => {
+   console.log(response);
+   resolve();
+ });
+});
+}
 }

@@ -5,6 +5,7 @@ import {EnvironmentService} from '../services/environment.service';
 
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_REGISTER = '/users/create';
+export const RESOURCES_REGISTER_ARTISTE = '/artistes/create';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,40 @@ export class UserRepository {
            codeVille: string, nomDept: string, codeDept: string): Promise<any> {
     const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER}?username=${username}
     &password=${password}&email=${email}&nomVille=${nomVille}&codeVille=${codeVille}&nomDept=${nomDept}&codeDept=${codeDept}`;
-    return this.http.post(url, {},
-      {observe: 'response'}
+
+    console.log('url', url);
+
+    return this.http.get(url, {},
+      
     ).toPromise();
   }
+
+  registerArtiste(username: string,namedArtist: string,image:string,grade:number , nomVille: string,longDescription:string,
+    shortDescription:string,webSite:string,phoneNumber :string,password: string, email: string)
+    : Promise<any> {
+   const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}&namedArtist=${namedArtist}
+   &image=${image}&grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}&shortDescription=${shortDescription}&webSite=${webSite}
+   &password=${password}&email=${email}`;
+
+console.log('url', url);
+
+return this.http.get(url, {},
+
+).toPromise();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
