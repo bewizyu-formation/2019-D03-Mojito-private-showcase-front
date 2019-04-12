@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {PATH_WELCOME} from '../app.routes.constante';
+import {PATH_HOME, PATH_WELCOME} from '../app.routes.constante';
 import {UserService} from '../user/user.service';
 
 @Component({
@@ -12,12 +12,20 @@ export class HomeComponent implements OnInit {
   title = 'Artistes dans votre département';
   constructor(private router: Router, private userService: UserService) { }
 
-  ngOnInit() {
+
+  redirectToHome() {
+    this.router.navigate([PATH_HOME]);
   }
 
   Logout() {
     localStorage.removeItem('currentUser');
     this.router.navigate([PATH_WELCOME]);
   }
+
+  ngOnInit() {
+  }
+
+
+
 
 }

@@ -12,13 +12,9 @@
         <mat-icon>move_to_inbox</mat-icon>
         <span>Accueil</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="redirectToHome()" >
         <mat-icon>send</mat-icon>
         <span>Evènement</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>group</mat-icon>
-        <span>Contact</span>
       </button>
     </mat-menu>
 

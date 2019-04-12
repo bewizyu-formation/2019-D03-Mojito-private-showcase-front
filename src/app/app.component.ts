@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserService} from './user/user.service';
 import {HelloRepository} from './hello/hello.repository';
+import {PATH_HOME} from './app.routes.constante';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,7 @@ export class AppComponent {
   selecetdFile: File;
   imagePreview: string;
 
-  constructor(private userService: UserService, private hello: HelloRepository) {
+  constructor(private userService: UserService, private hello: HelloRepository, private router: Router) {
   }
 
   handleLogin() {
@@ -29,6 +31,15 @@ export class AppComponent {
     this.hello.testApiWithUserRole()
       .subscribe(
         response => console.log('Check USER ROLE : ', response.message),
+      );
+  }
+
+ public handleUserForPageHome() {
+   // this.router.navigate([PATH_HOME])
+    this.hello.testApiWithUserRole()
+      .subscribe(
+        data => console.log(data),
+        err => console.log(err)
       );
   }
 
