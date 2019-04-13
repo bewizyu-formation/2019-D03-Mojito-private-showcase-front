@@ -41,7 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   width: 1280px;
   height: 786px;
-  flex-direction: row;
+  flex-direction: column;
   margin: auto;
 }
 

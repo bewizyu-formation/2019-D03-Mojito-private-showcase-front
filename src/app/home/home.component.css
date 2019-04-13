@@ -6,9 +6,8 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: start;
-  align-content:space-evenly;
   width: 100%;
-  padding-left: 100px;
+  margin: 30px 65px;
 }
 
 .containerOpt {
@@ -19,7 +18,7 @@
   box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.3), 0 0 24px 0 rgba(0, 0, 0, 0.22);
   width: 344px;
   height: 304px;
-  margin-right: 20px;
+  margin: 20px 20px;
 }
 
 .artist_outlay{
