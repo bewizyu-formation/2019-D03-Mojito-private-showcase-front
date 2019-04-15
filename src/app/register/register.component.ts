@@ -3,14 +3,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PATH_LOGIN, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {Commune } from '../model/commune';
-
+import {Commune} from '../model/commune';
 import {GeoRepository} from '../user/geo.repository';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { stringify } from '@angular/core/src/util';
-import { Departement } from '../model/departement';
+import {Departement} from '../model/departement';
 
 
 @Component({
@@ -25,10 +20,6 @@ export class RegisterComponent implements OnInit {
   checkboxChecked: boolean;
   options: Commune[];
   commune: Commune;
-  departement: Departement[];
-  codeVille: String;
-  nomDept: String;
-  codeDept: String;
 
   isHidden = true;
   isDisplay: boolean;
@@ -43,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private router: Router, private user: UserService,
-     private fb: FormBuilder, private geo: GeoRepository ) {
+              private fb: FormBuilder, private geo: GeoRepository) {
 
     // creation des controles
     this.usernameCtrl = fb.control('', [Validators.required]);
@@ -71,27 +62,25 @@ export class RegisterComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
 
-
   userRegister() {
-  // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
-    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value );
-    console.log( this.commune.nom + '  ' + this.commune.codeDepartement );
-  
-    this.userService.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
+    // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
+    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value);
+    console.log(this.commune.nom + '  ' + this.commune.codeDepartement);
+
+    this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
       `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`)
       .then((data) => {
         this.router.navigate([PATH_LOGIN]);
       }, error => {
         this.errorMessage = error.error.error;
       });
-
   }
+
   getErrorMessage() {
     return this.emailCtrl.hasError('required') ? 'You must enter a value' :
       this.emailCtrl.hasError('email') ? 'Not a valid email' :
         '';
   }
-
 
   handleDisplay() {
     if (this.checkboxChecked = true) {
@@ -100,7 +89,6 @@ export class RegisterComponent implements OnInit {
       //   this.isDisplay = false;
       this.isDisplay = !this.isDisplay;
     }
-
   }
 
   handleSubmit() {
@@ -112,16 +100,15 @@ export class RegisterComponent implements OnInit {
 
     // retourne la liste des communes lors de la saisie de l'élément 'Ville' du formulaire
     this.nomVilleCtrl.valueChanges.subscribe(value => {
-
-      this.geo.getCommune( value)
-      .pipe()
-      .subscribe(data => {
-        console.log(' =====' + data);
-        this.options = data;
+      this.geo.getCommune(value)
+        .pipe()
+        .subscribe(data => {
+          console.log(' =====' + data);
+          this.options = data;
         }, error => {
-        console.log(error);
-      });
+          console.log(error);
+        });
     });
 
-}
+  }
 }

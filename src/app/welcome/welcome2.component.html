@@ -1,24 +1,19 @@
 <mat-nav-list class="navbar navbar-fixed-top">
   <div class="navbar-header">
     <a class="navbar-brand">{{title}}</a>
-
-    <!--menu-->
-
     <button class="menuIcon" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="redirectToWelcome()">
+      <button mat-menu-item (click)="redirectToHome()">
         <mat-icon>move_to_inbox</mat-icon>
-        <span>Accueil</span>
+        <span>Home</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item  >
         <mat-icon>send</mat-icon>
         <span>Evènement</span>
       </button>
     </mat-menu>
-
-    <!-- menu setting-->
 
     <button class="settingsIcon" mat-icon-button [matMenuTriggerFor]="settings">
       <mat-icon>more_vert</mat-icon>
@@ -35,8 +30,14 @@
     </mat-menu>
   </div>
 </mat-nav-list>
-
 <div class="container">
+  <div class="banniere">
+    <img src="../../assets/images/28045370998-7-fd-65-a-69-b-3-k.jpg">
+    <p class="description">Private ShowCase est une plateforme web permettant la mise en relation de musiciens avec des
+      particuliers qui souhaitent organiser des concerts chez eux.</p>
+    <p class="subDescription"> Les spectateurs sont directement invités par l'organisateur, une participation pourra
+      être demandée pour le cachet des artistes.</p>
+  </div>
   <div class="subContainer">
     <div class="containerOpt">
       <img class="imageSub" src="../../assets/images/circle-image.jpg">
