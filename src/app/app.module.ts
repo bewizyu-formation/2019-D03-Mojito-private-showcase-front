@@ -31,6 +31,7 @@ import {AuthInterceptor} from './auth/auth-interceptor';
 import {WelcomeLogComponent} from './welcome/welcomeLog.component';
 import { ProfilComponent } from './profil/profil.component';
 import { EventComponent } from './event/event.component';
+import { ArtisteComponent } from './artiste/artiste.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { EventComponent } from './event/event.component';
     WelcomeComponent,
     WelcomeLogComponent,
     ProfilComponent,
-    EventComponent
+    EventComponent,
+    ArtisteComponent
   ],
   imports: [
     BrowserModule,

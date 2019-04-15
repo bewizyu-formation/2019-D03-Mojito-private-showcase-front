@@ -24,6 +24,10 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #settings="matMenu" xPosition="before">
+      <button mat-menu-item (click)="goToArtiste()" [hidden]="isHidden()">
+        <mat-icon>music_note</mat-icon>
+        <span>Artiste</span>
+      </button>
       <button mat-menu-item (click)="goToProfil()">
         <mat-icon>settings</mat-icon>
         <span>Profil</span>
