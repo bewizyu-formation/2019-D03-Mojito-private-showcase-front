@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -23,8 +22,9 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule,
-  MatSelectModule
+  MatSelectModule, MatSnackBarModule, MatTooltipModule
 } from '@angular/material';
+import {StarRatingComponent} from './star-rating/star-rating.component';
 import {UserService} from './user/user.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth-interceptor';
@@ -34,6 +34,7 @@ import { EventComponent } from './event/event.component';
 import { ArtisteComponent } from './artiste/artiste.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { ArtisteComponent } from './artiste/artiste.component';
     LoginComponent,
     HomeComponent,
     WelcomeComponent,
+    StarRatingComponent
     WelcomeLogComponent,
     ProfilComponent,
     EventComponent,
@@ -61,7 +63,9 @@ import { ArtisteComponent } from './artiste/artiste.component';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    MatSelectModule
+    MatTooltipModule,
+    MatSelectModule,
+    MatSnackBarModule,
 
   ],
   providers: [

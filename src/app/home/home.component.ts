@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+
+import {Component, Input, OnInit} from '@angular/core';
+import {StarRatingColor} from '../star-rating/star-rating.component';
 import {Router} from '@angular/router';
 import {PATH_EVENT, PATH_PROFIL, PATH_PROFIL_ARTISTE, PATH_WELCOME, PATH_WELCOME_LOG} from '../app.routes.constante';
 import {UserService} from '../user/user.service';
@@ -11,6 +13,14 @@ import {getToken} from 'codelyzer/angular/styles/cssLexer';
 })
 export class HomeComponent implements OnInit {
   title = 'Artistes dans votre département';
+
+  voteCount = 2;
+  rating = 3;
+  starCount = 5;
+
+
+  constructor() { }
+
 
   hidden: boolean;
 
@@ -38,7 +48,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate([PATH_WELCOME]);
   }
 
-  // si l'utilisateur est un user, l'icone est caché (true), si l'utilisateur est un artiste l'icone est visible (false)
   isHidden() {
     if (this.userService.token) {
       this.hidden = true;
@@ -47,8 +56,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
+
   ngOnInit() {
   }
 
-
+ page_home_design
+  onRatingChanged(rating) {
+    console.log(rating);
+    this.rating = rating;
+  }
 }
