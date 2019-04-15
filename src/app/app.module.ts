@@ -42,7 +42,7 @@ import { ArtisteComponent } from './artiste/artiste.component';
     LoginComponent,
     HomeComponent,
     WelcomeComponent,
-    StarRatingComponent
+    StarRatingComponent,
     WelcomeLogComponent,
     ProfilComponent,
     EventComponent,

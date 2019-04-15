@@ -18,10 +18,6 @@ export class HomeComponent implements OnInit {
   rating = 3;
   starCount = 5;
 
-
-  constructor() { }
-
-
   hidden: boolean;
 
   constructor(private router: Router, private userService: UserService) {
@@ -60,7 +56,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
- page_home_design
   onRatingChanged(rating) {
     console.log(rating);
     this.rating = rating;
