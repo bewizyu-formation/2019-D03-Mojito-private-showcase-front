@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {PATH_WELCOME, PATH_WELCOME_LOG} from '../app.routes.constante';
+import {PATH_EVENT, PATH_PROFIL, PATH_WELCOME, PATH_WELCOME_LOG} from '../app.routes.constante';
 import {UserService} from '../user/user.service';
 
 @Component({
@@ -18,11 +18,17 @@ export class HomeComponent implements OnInit {
     this.router.navigate([PATH_WELCOME_LOG]);
   }
 
+  goToEvents() {
+    this.router.navigate([PATH_EVENT]);
+  }
+  goToProfil() {
+    this.router.navigate([PATH_PROFIL]);
+  }
+
   Logout() {
     localStorage.removeItem('currentUser');
     this.router.navigate([PATH_WELCOME]);
   }
-
   ngOnInit() {
   }
 

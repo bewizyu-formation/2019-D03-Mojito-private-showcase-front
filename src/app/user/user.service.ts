@@ -39,7 +39,7 @@ export class UserService {
   register(username: string, password: string, email: string, nomVille: string,
 
            codeVille: string, codeDept: string): Promise<any> {
-    return new Promise((resolve, reject) => {    
+    return new Promise((resolve, reject) => {
       this.userRepository
         .register(username, password, email, nomVille, codeVille, codeDept)
         .then((response: HttpResponse<any>) => {
