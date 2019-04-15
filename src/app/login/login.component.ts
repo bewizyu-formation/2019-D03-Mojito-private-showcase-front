@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-
   userLogin() {
     if (this.loginForm.invalid) {
       this.errorMessage = 'L\' identifiant ou le mot de passe est invalide';

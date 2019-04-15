@@ -28,7 +28,10 @@ import {
 import {UserService} from './user/user.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth-interceptor';
-import {Welcome2Component} from './welcome/welcome2.component';
+import {WelcomeLogComponent} from './welcome/welcomeLog.component';
+import { ProfilComponent } from './profil/profil.component';
+import { EventComponent } from './event/event.component';
+import { ArtisteComponent } from './artiste/artiste.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import {Welcome2Component} from './welcome/welcome2.component';
     LoginComponent,
     HomeComponent,
     WelcomeComponent,
-    Welcome2Component
+    WelcomeLogComponent,
+    ProfilComponent,
+    EventComponent,
+    ArtisteComponent
   ],
   imports: [
     BrowserModule,
