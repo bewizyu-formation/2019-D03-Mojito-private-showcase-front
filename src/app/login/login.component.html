@@ -27,7 +27,6 @@
           <mat-form-field appearance="standard">
             <input matInput placeholder="Mot de passe *" [type]="isHidden ? 'password' : 'text'" formControlName="password">
             <mat-error *ngIf="password.dirty">{{getErrorMessage()}}</mat-error>
-            <mat-error *ngIf=" loginForm.get('password').hasError('pattern')">Le mot de passe doit contenir une Majuscule, une minuscule et un nombre</mat-error>
             <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
 

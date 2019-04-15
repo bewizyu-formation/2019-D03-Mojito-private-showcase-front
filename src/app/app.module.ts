@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -26,6 +25,15 @@ import {
   MatSelectModule, MatSnackBarModule, MatTooltipModule
 } from '@angular/material';
 import {StarRatingComponent} from './star-rating/star-rating.component';
+import {UserService} from './user/user.service';
+import {AuthGuard} from './auth/auth.guard';
+import {AuthInterceptor} from './auth/auth-interceptor';
+import {WelcomeLogComponent} from './welcome/welcomeLog.component';
+import { ProfilComponent } from './profil/profil.component';
+import { EventComponent } from './event/event.component';
+import { ArtisteComponent } from './artiste/artiste.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +43,10 @@ import {StarRatingComponent} from './star-rating/star-rating.component';
     HomeComponent,
     WelcomeComponent,
     StarRatingComponent
+    WelcomeLogComponent,
+    ProfilComponent,
+    EventComponent,
+    ArtisteComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +73,8 @@ import {StarRatingComponent} from './star-rating/star-rating.component';
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
+    {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi: true},
+    [UserService, AuthGuard],
   ],
   bootstrap: [AppComponent]
 })

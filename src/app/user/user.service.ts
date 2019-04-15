@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {UserRepository} from './user.repository';
 import {HttpResponse} from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,14 +37,16 @@ export class UserService {
   }
 
   register(username: string, password: string, email: string, nomVille: string,
-           codeVille: string, nomDept: string, codeDept: string): Promise<any> {
-    return new Promise((resolve) => {
+
+           codeVille: string, codeDept: string): Promise<any> {
+    return new Promise((resolve, reject) => {
       this.userRepository
-        .register(username, password, email, nomVille, codeVille, nomDept, codeDept)
+        .register(username, password, email, nomVille, codeVille, codeDept)
         .then((response: HttpResponse<any>) => {
-          console.log(response);
-          resolve();
-        });
+            console.log(response);
+            resolve();
+          }, error => reject(error),
+        );
     });
   }
 }

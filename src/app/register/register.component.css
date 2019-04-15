@@ -90,3 +90,7 @@
 .example-full-width {
   width: 100%;
 }
+.text-danger{
+  color:red;
+  font-size: 12px;
+}

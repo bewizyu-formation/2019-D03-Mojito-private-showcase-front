@@ -8,17 +8,13 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="redirectToWelcome()">
         <mat-icon>move_to_inbox</mat-icon>
         <span>Accueil</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="goToEvents()">
         <mat-icon>send</mat-icon>
         <span>Evènement</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>group</mat-icon>
-        <span>Contact</span>
       </button>
     </mat-menu>
 
@@ -28,11 +24,15 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #settings="matMenu" xPosition="before">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="goToArtiste()" [hidden]="isHidden()">
+        <mat-icon>music_note</mat-icon>
+        <span>Artiste</span>
+      </button>
+      <button mat-menu-item (click)="goToProfil()">
         <mat-icon>settings</mat-icon>
         <span>Profil</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="Logout()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Déconnection</span>
       </button>

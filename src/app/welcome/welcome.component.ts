@@ -10,7 +10,9 @@ import {Router} from '@angular/router';
 export class WelcomeComponent implements OnInit {
   title = 'Private Showcase';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
+
   goToLogPage() {
     this.router.navigate([PATH_LOGIN]);
   }
@@ -18,5 +20,7 @@ export class WelcomeComponent implements OnInit {
   goToSignPage() {
     this.router.navigate([PATH_REGISTER]);
   }
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
 }
