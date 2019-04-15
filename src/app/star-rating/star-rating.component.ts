@@ -15,13 +15,17 @@ export class StarRatingComponent implements OnInit {
   private starCount = 5;
   @Input()
   private color = 'primary';
+  @Input()
+  private voteCount = 2;
+
+  @Output()
+  private voteCountUpdated = new EventEmitter();
   @Output()
   private ratingUpdated = new EventEmitter();
 
-  private snackBarDuration = 2000;
   private ratingArr = [];
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor() {
   }
 
 
@@ -29,16 +33,13 @@ export class StarRatingComponent implements OnInit {
     console.log('a ' + this.starCount);
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
-    }
+      }
   }
-  onClick(rating: number) {
-    console.log(rating);
-    this.snackBar.open('You rated ' + rating + ' / ' + this.starCount, '', {
-      duration: this.snackBarDuration
-    });
+  onClick(rating: number, ) {
     this.ratingUpdated.emit(rating);
-    return false;
+    this.voteCount++;
   }
+
 
   showIcon(index: number) {
     if (this.rating >= index + 1) {
@@ -53,5 +54,4 @@ export enum StarRatingColor {
   primary = 'primary',
   accent = 'accent',
   warn = 'warn',
-  yellow = 'yellow'
 }

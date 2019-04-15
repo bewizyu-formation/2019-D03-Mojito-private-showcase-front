@@ -22,7 +22,8 @@
 }
 
 .artist_outlay{
-  position:absolute;
+  display:flex;
+  position:relative;
   width: 100%;
   background-color: rgba(66, 66, 66, 0.9);
   height: 45%;
@@ -39,20 +40,34 @@
   font-size: 24px;
   margin: auto;
   color: white;
-  padding-left: 20px;
+  padding: 10px 0 20px 20px;
+  margin: auto;
 }
 .artist_subtitle {
   position:absolute;
   font-size: 16px;
   margin: auto;
-  padding: 40px 0 0 20px;
+  padding: 45px 0 0 20px;
+  color: white;
+  margin:auto;
+}
+
+.icon {
   color: white;
 }
-overlay_stars {
-display: flex;
-  align-content: flex-end;
-  color: yellow;
-  background-color: yellow;
+.overlay_icones{
+ display: flex;
+  margin-top:90px;
+  padding-right: 10px;
+}
+
+.overlay_icones_text {
+  display: flex;
+  align-content: flex-start;
+  width: auto;
+  padding: 0 10px 0px 5px;
+  margin: auto auto 25px auto;
+  color:white;
 }
 
 .menuIcon{
