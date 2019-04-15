@@ -47,6 +47,7 @@
       <div class="artist_outlay">
       <p class="artist_title">Queen</p>
       <p class="artist_subtitle">Proposez des concert privés</p>
+
       </div>
     </div>
     <div class="containerOpt">
@@ -54,6 +55,7 @@
       <div class="artist_outlay">
       <p class="artist_title">Angra</p>
       <p class="artist_subtitle">Vivez une expérience unique</p>
+        <p class="overlay_stars"><app-star-rating [rating]="rating"  [starCount]="starCount" (ratingUpdated)="onRatingChanged($event)"></app-star-rating></p>
       </div>
     </div>
     <div class="containerOpt">
@@ -80,3 +82,5 @@
 
   </div>
 </div>
+
+

@@ -23,8 +23,9 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule,
-  MatSelectModule
+  MatSelectModule, MatSnackBarModule, MatTooltipModule
 } from '@angular/material';
+import {StarRatingComponent} from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,9 @@ import {
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    MatSelectModule
+    MatTooltipModule,
+    MatSelectModule,
+    MatSnackBarModule,
 
   ],
   providers: [
