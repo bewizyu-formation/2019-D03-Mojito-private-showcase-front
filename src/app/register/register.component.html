@@ -24,11 +24,11 @@
         </mat-form-field>
 
         <mat-form-field appearance="standard">
-
           <input matInput placeholder="Mot de passe" [type]="isHidden ? 'password' : 'text'" formControlName="password">
-          <mat-error *ngIf="passwordCtrl.hasError('pattern')">Le mot de passe nécessite au moins 8 caractères, une Majuscule, une
-            minuscule et un chiffre</mat-error>
-
+          <mat-error *ngIf="passwordCtrl.hasError('pattern')">Le mot de passe nécessite au moins 8 caractères, une
+            Majuscule, une
+            minuscule et un chiffre
+          </mat-error>
           <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
 
@@ -45,31 +45,23 @@
         </mat-form-field>
 
         <div class="example-form">
-          <mat-form-field appearance="standard" class="example-full-width"  >
-            <input type="text" placeholder="Ville" aria-label="Number"  
-                   matInput
-                  
-                   [matAutocomplete]="auto" formControlName="nomVille"/>
-        
-   
-
+          <mat-form-field appearance="standard" class="example-full-width">
+            <input type="text" placeholder="Ville" matInput [matAutocomplete]="auto" formControlName="nomVille">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let option of options" [value]="option.nom">
                 {{option.nom}}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
-         </div>
+        </div>
 
 
         <mat-checkbox labelPosition="after" appearance="standard" FormControlName="checked" (change)="handleDisplay()">
-
           <span class="mat-checkbox-artiste-text"> Êtes-vous un artiste proposant des prestations privées ?</span>
         </mat-checkbox>
 
 
         <div *ngIf="isDisplay" class="form-hidden">
-
           <mat-form-field appearance="standard" floatLabel="auto">
             <input matInput placeholder="Nom d'artiste">
           </mat-form-field>
@@ -82,7 +74,7 @@
 
         <p>
           <button (click)="cancel()" mat-button class="main_button main_button--cancel">Annuler</button>
-          <button (click)="userRegister()" mat-button class="main_button main_button--validate" >Valider</button>
+          <button (click)="userRegister()" mat-button class="main_button main_button--validate">Valider</button>
         </p>
 
       </form>

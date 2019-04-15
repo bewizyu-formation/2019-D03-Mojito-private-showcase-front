@@ -28,6 +28,7 @@ import {
 import {UserService} from './user/user.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth-interceptor';
+import {Welcome2Component} from './welcome/welcome2.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {AuthInterceptor} from './auth/auth-interceptor';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    Welcome2Component
   ],
   imports: [
     BrowserModule,
