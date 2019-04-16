@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
       Validators.required,
-      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)'),
+      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')
       ]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
