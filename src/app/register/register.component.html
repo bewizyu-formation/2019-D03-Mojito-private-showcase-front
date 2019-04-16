@@ -36,6 +36,7 @@
 
           <input matInput placeholder="Confirmez le mot de passe" [type]="isHidden ? 'password' : 'text'"
                  formControlName="password">
+          <mat-error *ngIf="passwordCtrl.hasError('required')">Merci de confirmer le mot de passe</mat-error>
           <mat-icon matSuffix (click)="hidePassword()">{{isHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
 
@@ -46,7 +47,7 @@
 
         <div class="example-form">
           <mat-form-field appearance="standard" class="example-full-width">
-            <input type="text" placeholder="Ville" matInput [matAutocomplete]="auto" formControlName="nomVille">
+            <input type="text" placeholder="Ville" matInput [matAutocomplete]="auto" formControlName="commune">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let option of options" [value]="option.nom">
                 {{option.nom}}

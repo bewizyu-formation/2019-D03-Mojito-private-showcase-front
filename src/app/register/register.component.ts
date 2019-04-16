@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
   nomVilleCtrl: FormControl;
   checkedCtrl: FormControl;
 
-
   constructor(private router: Router, private user: UserService,
               private fb: FormBuilder, private geo: GeoRepository) {
 
@@ -49,7 +48,7 @@ export class RegisterComponent implements OnInit {
       username: this.usernameCtrl,
       password: this.passwordCtrl,
       email: this.emailCtrl,
-      nomVille: this.nomVilleCtrl,
+      commune: this.nomVilleCtrl,
       checked: this.checkedCtrl
     });
   }

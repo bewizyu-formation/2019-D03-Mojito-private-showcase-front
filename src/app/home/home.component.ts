@@ -1,4 +1,3 @@
-
 import {Component, Input, OnInit} from '@angular/core';
 import {StarRatingColor} from '../star-rating/star-rating.component';
 import {Router} from '@angular/router';
@@ -43,21 +42,14 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('currentUser');
     this.router.navigate([PATH_WELCOME]);
   }
-
-  isHidden() {
-    if (this.userService.token) {
-      this.hidden = true;
-    } else {
-      this.hidden = false;
-    }
-  }
-
-
-  ngOnInit() {
-  }
-
+  
   onRatingChanged(rating) {
     console.log(rating);
     this.rating = rating;
+
   }
+
+    ngOnInit() {
+    }
+    
 }
