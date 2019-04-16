@@ -14,8 +14,6 @@ import {getToken} from 'codelyzer/angular/styles/cssLexer';
 export class HomeComponent implements OnInit {
   title = 'Artistes dans votre département';
 
-  voteCount = 2;
-  rating = 3;
   starCount = 5;
 
   hidden: boolean;
@@ -54,10 +52,5 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-  }
-
-  onRatingChanged(rating) {
-    console.log(rating);
-    this.rating = rating;
   }
 }

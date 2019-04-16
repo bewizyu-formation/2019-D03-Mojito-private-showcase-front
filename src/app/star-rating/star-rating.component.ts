@@ -10,13 +10,13 @@ import { MatSnackBar } from '@angular/material';
 export class StarRatingComponent implements OnInit {
 
   @Input()
-  private rating = 3;
+  private rating: number;
   @Input()
   private starCount = 5;
   @Input()
   private color = 'primary';
   @Input()
-  private voteCount = 2;
+  private voteCount: number;
 
   @Output()
   private voteCountUpdated = new EventEmitter();
@@ -28,17 +28,16 @@ export class StarRatingComponent implements OnInit {
   constructor() {
   }
 
-
   ngOnInit() {
     console.log('a ' + this.starCount);
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
       }
   }
-  onClick(rating: number, ) {
-    this.ratingUpdated.emit(rating);
-    this.voteCount++;
-  }
+  // onClick(rating: number, ) {
+  //   this.ratingUpdated.emit(rating);
+  //   this.voteCount++;
+  // }
 
 
   showIcon(index: number) {
