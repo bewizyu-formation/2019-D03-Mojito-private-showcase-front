@@ -49,7 +49,7 @@
 
         <div class="example-form">
           <mat-form-field appearance="standard" class="example-full-width">
-            <input type="text" placeholder="Ville*" matInput [matAutocomplete]="auto" formControlName="commune">
+            <input type="text" placeholder="Ville*" matInput [matAutocomplete]="auto" formControlName="nomVille">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let option of options" [value]="option.nom">
                 {{option.nom}}
