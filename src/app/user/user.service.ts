@@ -48,12 +48,13 @@ export class UserService {
     });
   }
 
-  registerArtiste(username: string, namedArtist: string, image: string, grade: number , longDescription: string,
-    shortDescription: string, webSite: string, phoneNumber: string, password: string, email: string,
+  registerArtiste(username: string, password: string, namedArtist: string, image: string, grade: number , longDescription: string,
+    shortDescription: string, webSite: string, phoneNumber: string, email: string,
     nomVille: string, codeVille: string, codeDept: string): Promise<any> {
     return new Promise((resolve) => {
-    this.userRepository.registerArtiste(username, namedArtist, image, grade, nomVille, longDescription,
-      shortDescription, webSite, phoneNumber, password, email, codeVille, codeDept)
+    this.userRepository
+      .registerArtiste(username, password, namedArtist, image, grade, nomVille, longDescription,
+      shortDescription, webSite, phoneNumber, email, codeVille, codeDept)
      .then((response: HttpResponse<any>) => {
        console.log(response);
        resolve();

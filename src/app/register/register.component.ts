@@ -81,18 +81,19 @@ export class RegisterComponent implements OnInit {
     if (this.isDisplay === true) {
       console.log('==========///  register artist ');
       this.user.registerArtiste(`${this.usernameCtrl.value}`,
+        `${this.passwordCtrl.value}`,
         `${this.namedArtistCtrl.value}`,
         'image', 5 ,
         'longDescription',
         `${this.shortDescriptionCtrl.value}`,
         'webSite', 'phoneNumber' ,
-        `${this.passwordCtrl.value}`,
         `${this.emailCtrl.value}`,
         `${this.commune.nom}`,
         `${this.commune.code}`,
         `${this.commune.codeDepartement}`
-
       ).then((data) => {this.router.navigate([PATH_LOGIN]); });
+      this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
+        `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`);
     } else {
       console.log('==========///  register user ');
 
