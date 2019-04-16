@@ -5,8 +5,6 @@ import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {Commune} from '../model/commune';
 import {GeoRepository} from '../user/geo.repository';
-import {Departement} from '../model/departement';
-
 
 @Component({
   selector: 'app-register',
@@ -33,8 +31,8 @@ export class RegisterComponent implements OnInit {
   nomVilleCtrl: FormControl;
   checkedCtrl: FormControl;
 
-  namedArtistCtrl:FormControl;
-  shortDescriptionCtrl:FormControl;
+  namedArtistCtrl: FormControl;
+  shortDescriptionCtrl: FormControl;
 
 
 
@@ -50,8 +48,8 @@ export class RegisterComponent implements OnInit {
       Validators.pattern('^(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
-     this.namedArtistCtrl = fb.control('', [Validators.required]);
-     this.shortDescriptionCtrl = fb.control('', [Validators.required]);
+    this.namedArtistCtrl = fb.control('', [Validators.required]);
+    this.shortDescriptionCtrl = fb.control('', [Validators.required]);
     // création du groupe
     this.registerForm = fb.group({
       username: this.usernameCtrl,
@@ -60,60 +58,63 @@ export class RegisterComponent implements OnInit {
       email: this.emailCtrl,
       nomVille: this.nomVilleCtrl,
       checked: this.checkedCtrl,
-      nomArtist:this.namedArtistCtrl,
-      shortDescription:this.shortDescriptionCtrl 
+      nomArtist: this.namedArtistCtrl,
+      shortDescription: this.shortDescriptionCtrl
     });
   }
+
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
+
   cancel() {
     this.router.navigate([PATH_WELCOME]);
   }
+
   userRegister() {
     // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
 
 
-    this.nomVille = this.options.find(e => e.nom === this.nomVilleCtrl.value);
-    //console.log(this.commune.nom + '  ' + this.commune.codeDepartement);
+    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value);
 
-    if(this.isDisplay==true){
-      console.log("==========///  register artis ");
- this.user.registerArtiste(`${this.usernameCtrl.value}`,
- `${this.namedArtistCtrl.value}`,
- 'image',5 , 
- 'longDescription',
-  `${this.shortDescriptionCtrl.value}`,
-  'webSite','phoneNumber' ,
-  `${this.passwordCtrl.value}`,
-   `${this.emailCtrl.value}`,
-   `${this.nomVille.nom}`, 
-   `${this.nomVille.code}`,
-    `${this.nomVille.codeDepartement}`
-   
-   ).then((data) => {this.router.navigate([PATH_LOGIN]); });
-    }else{
-        console.log("==========///  register user ");
-      
-   
-    if (this.confirmPasswordCtrl.value !== this.passwordCtrl.value) {
-      return false;
-    }
-    
 
-    this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
-      `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`)
-      .then((data) => {
-        this.router.navigate([PATH_LOGIN]);
-      }, error => {
-        this.errorMessage = error.error.error;
-      });
+    if (this.isDisplay === true) {
+      console.log('==========///  register artist ');
+      this.user.registerArtiste(`${this.usernameCtrl.value}`,
+        `${this.namedArtistCtrl.value}`,
+        'image', 5 ,
+        'longDescription',
+        `${this.shortDescriptionCtrl.value}`,
+        'webSite', 'phoneNumber' ,
+        `${this.passwordCtrl.value}`,
+        `${this.emailCtrl.value}`,
+        `${this.commune.nom}`,
+        `${this.commune.code}`,
+        `${this.commune.codeDepartement}`
+
+      ).then((data) => {this.router.navigate([PATH_LOGIN]); });
+    } else {
+      console.log('==========///  register user ');
+
+
+      if (this.confirmPasswordCtrl.value !== this.passwordCtrl.value) {
+        return false;
+      }
+
+
+      this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
+        `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`)
+        .then((data) => {
+          this.router.navigate([PATH_LOGIN]);
+        }, error => {
+          this.errorMessage = error.error.error;
+        });
     }
   }
 
   getErrorMessage() {
     return this.emailCtrl.hasError('email') ? 'Email non valide' :
-        '';
+      '';
   }
 
   handleDisplay() {
