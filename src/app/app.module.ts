@@ -73,7 +73,7 @@ import { ArtisteComponent } from './artiste/artiste.component';
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
-    {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi: true},
+  ///  {provide : HTTP_INTERCEPTORS, useClass : //AuthInterceptor, multi: true},
     [UserService, AuthGuard],
   ],
   bootstrap: [AppComponent]
