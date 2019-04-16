@@ -56,16 +56,12 @@ export class RegisterComponent implements OnInit {
       checked: this.checkedCtrl
     });
   }
-
   hidePassword() {
     this.isHidden = !this.isHidden;
   }
-
-
   cancel() {
     this.router.navigate([PATH_WELCOME]);
   }
-
   userRegister() {
     // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
     this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value);
@@ -85,16 +81,12 @@ export class RegisterComponent implements OnInit {
   }
 
   getErrorMessage() {
-    return this.emailCtrl.hasError('required') ? 'You must enter a value' :
-      this.emailCtrl.hasError('email') ? 'Not a valid email' :
+    return this.emailCtrl.hasError('email') ? 'Email non valide' :
         '';
   }
 
   handleDisplay() {
     if (this.checkboxChecked = true) {
-      // this.isDisplay = true;
-      // } else if (this.checkboxChecked = false) {
-      //   this.isDisplay = false;
       this.isDisplay = !this.isDisplay;
     }
   }
