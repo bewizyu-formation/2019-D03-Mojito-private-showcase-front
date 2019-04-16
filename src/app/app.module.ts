@@ -29,9 +29,9 @@ import {UserService} from './user/user.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import {WelcomeLogComponent} from './welcome/welcomeLog.component';
-import { ProfilComponent } from './profil/profil.component';
-import { EventComponent } from './event/event.component';
-import { ArtisteComponent } from './artiste/artiste.component';
+////import { ProfilComponent } from './profil/profil.component';
+////import { EventComponent } from './event/event.component';
+//import { ArtisteComponent } from './artiste/artiste.component';
 
 
 @NgModule({
@@ -42,9 +42,9 @@ import { ArtisteComponent } from './artiste/artiste.component';
     HomeComponent,
     WelcomeComponent,
     WelcomeLogComponent,
-    ProfilComponent,
-    EventComponent,
-    ArtisteComponent
+   // ProfilComponent,
+   // EventComponent,
+   // ArtisteComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +69,7 @@ import { ArtisteComponent } from './artiste/artiste.component';
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
-    {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi: true},
+   // {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi: true},
     [UserService, AuthGuard],
   ],
   bootstrap: [AppComponent]

@@ -36,9 +36,7 @@ export class UserService {
     });
   }
 
-  register(username: string, password: string, email: string, nomVille: string,
-
-           codeVille: string, codeDept: string): Promise<any> {
+  register(username: string, password: string, email: string, nomVille: string, codeVille: string, codeDept: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.userRepository
         .register(username, password, email, nomVille, codeVille, codeDept)
@@ -49,4 +47,23 @@ export class UserService {
         );
     });
   }
+
+  registerArtiste(username: string,namedArtist: string,image:string,grade:number , longDescription:string,
+    shortDescription:string,webSite:string,phoneNumber :string,password: string, email: string,
+    nomVille: string,codeVille:string,codeDept: string): Promise<any> {
+    return new Promise((resolve) => {
+    this.userRepository.registerArtiste(username,namedArtist,image,grade,nomVille,longDescription,
+      shortDescription,webSite,phoneNumber,password,email,codeVille,codeDept)
+     .then((response: HttpResponse<any>) => {
+       console.log(response);
+       resolve();
+     });
+    });
+    }
+
+
+
+
+
+
 }
