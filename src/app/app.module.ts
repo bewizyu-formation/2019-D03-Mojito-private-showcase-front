@@ -29,9 +29,9 @@ import {UserService} from './user/user.service';
 import {AuthGuard} from './auth/auth.guard';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import {WelcomeLogComponent} from './welcome/welcomeLog.component';
-import { ProfilComponent } from './profil/profil.component';
-import { EventComponent } from './event/event.component';
-import { ArtisteComponent } from './artiste/artiste.component';
+////import { ProfilComponent } from './profil/profil.component';
+////import { EventComponent } from './event/event.component';
+//import { ArtisteComponent } from './artiste/artiste.component';
 
 
 
@@ -44,9 +44,9 @@ import { ArtisteComponent } from './artiste/artiste.component';
     WelcomeComponent,
     StarRatingComponent,
     WelcomeLogComponent,
-    ProfilComponent,
-    EventComponent,
-    ArtisteComponent
+   // ProfilComponent,
+   // EventComponent,
+   // ArtisteComponent
   ],
   imports: [
     BrowserModule,

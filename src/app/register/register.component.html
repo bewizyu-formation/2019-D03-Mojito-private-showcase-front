@@ -65,10 +65,10 @@
 
         <div *ngIf="isDisplay" class="form-hidden">
           <mat-form-field appearance="standard" floatLabel="auto">
-            <input matInput placeholder="Nom d'artiste*">
+            <input matInput placeholder="Nom d'artiste" formControlName="nomArtist">
           </mat-form-field>
           <mat-form-field>
-            <textarea matInput placeholder="Description*"></textarea>
+            <textarea matInput placeholder="Description" formControlName="shortDescription"></textarea>
           </mat-form-field>
         </div>
         <p>
