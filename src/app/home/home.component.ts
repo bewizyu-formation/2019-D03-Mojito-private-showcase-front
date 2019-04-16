@@ -42,7 +42,14 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('currentUser');
     this.router.navigate([PATH_WELCOME]);
   }
+  
+  onRatingChanged(rating) {
+    console.log(rating);
+    this.rating = rating;
+
+  }
 
     ngOnInit() {
-  }
+    }
+    
 }
