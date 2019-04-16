@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserRepository} from '../user/user.repository';
+import {AuthGuard} from '../auth/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -22,11 +23,12 @@ export class LoginComponent implements OnInit {
   isHidden = true;
 
 
-  constructor(private userService: UserService, private userRepo: UserRepository, private fb: FormBuilder, private router: Router) {
+  constructor(private userService: UserService, private userRepo: UserRepository, private fb: FormBuilder, private router: Router,
+              private guard: AuthGuard) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
       Validators.required,
-     /* Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')*/
+      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')
     ]);
     this.loginForm = fb.group({
       username: this.usernameCtrl,

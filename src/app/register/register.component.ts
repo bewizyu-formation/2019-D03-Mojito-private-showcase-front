@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   usernameCtrl: FormControl;
   passwordCtrl: FormControl;
+  confirmPasswordCtrl: FormControl;
   emailCtrl: FormControl;
   nomVilleCtrl: FormControl;
   checkedCtrl: FormControl;
@@ -39,7 +40,9 @@ export class RegisterComponent implements OnInit {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
       Validators.required,
-      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
+      Validators.pattern('^(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
+    this.confirmPasswordCtrl = fb.control('', [Validators.required,
+      Validators.pattern('^(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
 
@@ -47,6 +50,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = fb.group({
       username: this.usernameCtrl,
       password: this.passwordCtrl,
+      confirmPassword: this.confirmPasswordCtrl,
       email: this.emailCtrl,
       commune: this.nomVilleCtrl,
       checked: this.checkedCtrl
@@ -57,6 +61,7 @@ export class RegisterComponent implements OnInit {
     this.isHidden = !this.isHidden;
   }
 
+
   cancel() {
     this.router.navigate([PATH_WELCOME]);
   }
@@ -65,6 +70,10 @@ export class RegisterComponent implements OnInit {
     // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
     this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value);
     console.log(this.commune.nom + '  ' + this.commune.codeDepartement);
+
+    if (this.confirmPasswordCtrl.value !== this.passwordCtrl.value) {
+      return false;
+    }
 
     this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
       `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`)
