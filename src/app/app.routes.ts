@@ -23,7 +23,7 @@ export const ROUTES: Routes = [
   { path : PATH_WELCOME  , component : WelcomeComponent},
   { path : PATH_REGISTER , component : RegisterComponent},
   { path : PATH_LOGIN    , component : LoginComponent},
-  { path : PATH_HOME     , component : HomeComponent, /*canActivate: [AuthGuard]*/
+  { path : PATH_HOME     , component : HomeComponent, canActivate: [AuthGuard]
   },
   { path : PATH_PROFIL, component : ProfilComponent},
   { path : PATH_EVENT, component : EventComponent},

@@ -39,7 +39,8 @@ export class RegisterComponent implements OnInit {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
       Validators.required,
-      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')]);
+      Validators.pattern('(?=.{8,}$)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)')
+      ]);
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.nomVilleCtrl = fb.control('', [Validators.required]);
 
@@ -52,6 +53,8 @@ export class RegisterComponent implements OnInit {
       checked: this.checkedCtrl
     });
   }
+
+
 
   hidePassword() {
     this.isHidden = !this.isHidden;
@@ -76,16 +79,12 @@ export class RegisterComponent implements OnInit {
   }
 
   getErrorMessage() {
-    return this.emailCtrl.hasError('required') ? 'You must enter a value' :
-      this.emailCtrl.hasError('email') ? 'Not a valid email' :
+    return this.emailCtrl.hasError('email') ? 'Email non valide' :
         '';
   }
 
   handleDisplay() {
     if (this.checkboxChecked = true) {
-      // this.isDisplay = true;
-      // } else if (this.checkboxChecked = false) {
-      //   this.isDisplay = false;
       this.isDisplay = !this.isDisplay;
     }
   }
