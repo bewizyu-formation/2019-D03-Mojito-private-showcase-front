@@ -6,6 +6,7 @@ import {EnvironmentService} from '../services/environment.service';
 export const RESOURCES_LOGIN = '/login';
 export const RESOURCES_REGISTER = '/users/create';
 export const RESOURCES_REGISTER_ARTISTE = '/artistes/create';
+export const RESOURCES_LIST_ARTISTE = '/artistes';
 @Injectable({
   providedIn: 'root'
 })
@@ -54,7 +55,7 @@ const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_
   }
 
 getAllArtiste() {
-    return this.http.get(`${this.env.getPrivateShowcaseApiConfig().uri/artistes}`);
+    return this.http.get(`${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_LIST_ARTISTE}`);
 }
 
 }
