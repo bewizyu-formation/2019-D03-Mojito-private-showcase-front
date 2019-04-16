@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {PATH_EVENT, PATH_PROFIL, PATH_PROFIL_ARTISTE, PATH_WELCOME, PATH_WELCOME_LOG} from '../app.routes.constante';
 import {UserService} from '../user/user.service';
 import {getToken} from 'codelyzer/angular/styles/cssLexer';
+import {Artiste} from './Artiste';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,12 @@ import {getToken} from 'codelyzer/angular/styles/cssLexer';
 })
 export class HomeComponent implements OnInit {
   title = 'Artistes dans votre département';
+  namedArtist: string;
+  shortDescription: string;
+  codeDept: string;
 
   starCount = 5;
+
 
   hidden: boolean;
 
@@ -40,6 +45,7 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('currentUser');
     this.router.navigate([PATH_WELCOME]);
   }
+
 
   ngOnInit() {
   }

@@ -42,11 +42,11 @@
 
 <div class="container">
   <div class="subContainer">
-    <div class="containerOpt">
+    <div class="containerOpt" *ngFor="let artist of artistes">
       <img class="artist_imageSub" src="../../assets/images/Queen.jpg">
       <div class="artist_outlay">
-        <p class="artist_title">Queen</p>
-        <p class="artist_subtitle">Proposez des concert privés</p>
+        <p class="artist_title" >moker</p>
+        <p class="artist_subtitle"> moke</p>
         <div>
           <app-star-rating [rating]="3"  [starCount]="starCount" [voteCount]="50000"></app-star-rating>
         </div>
