@@ -3,6 +3,8 @@ import {PATH_HOME, PATH_WELCOME} from '../app.routes.constante';
 import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserRepository} from '../user/user.repository';
+import {AuthGuard} from '../auth/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,8 @@ export class LoginComponent implements OnInit {
   isHidden = true;
 
 
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
+  constructor(private userService: UserService, private userRepo: UserRepository, private fb: FormBuilder, private router: Router,
+              private guard: AuthGuard) {
     this.usernameCtrl = fb.control('', [Validators.required]);
     this.passwordCtrl = fb.control('', [
       Validators.required,
@@ -56,7 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin() {
-    if (this.loginForm.invalid) {
+    if (!this.userRepo.login('username', 'password')) {
       this.errorMessage = 'L\' identifiant ou le mot de passe est invalide';
       return;
     }
