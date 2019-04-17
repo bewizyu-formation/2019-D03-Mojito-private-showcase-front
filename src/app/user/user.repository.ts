@@ -45,12 +45,8 @@ const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_
 &namedArtist=${namedArtist}&image=${image}  &grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}
 &shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&password=${password}&email=${email}
 &codeVille=${codeVille}&codeDept=${codeDept}`;
-
-
   console.log('url', url);
-
   return this.http.post(url, {},
-
   ).toPromise();
   }
 
