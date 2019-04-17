@@ -73,13 +73,8 @@ export class RegisterComponent implements OnInit {
   }
 
   userRegister() {
-
-    console.log(" ici le nom de la ville " + this.nomVilleCtrl.value  );
-    console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
-
-
-    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value);
-
+    this.commune = this.options.find(e => e.nom === `${this.nomVilleCtrl.value}`);
+    console.log("le nom de la ville est " +  `${this.commune.nom}`  );
 
     if (this.isDisplay === true) {
       console.log('==========///  register artist ');
