@@ -14,7 +14,7 @@ import {GeoRepository} from '../user/geo.repository';
 
 export class RegisterComponent implements OnInit {
 
-  errorMessage;
+  errorMessage: string;
   checkboxChecked: boolean;
   options: Commune[];
   commune: Commune;
@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
   namedArtistCtrl: FormControl;
   shortDescriptionCtrl: FormControl;
 
+ 
 
 
   constructor(private router: Router, private user: UserService,
@@ -72,11 +73,8 @@ export class RegisterComponent implements OnInit {
   }
 
   userRegister() {
-    // console.log(this.options.find(e => e.nom === this.nomVilleCtrl.value ) );
-
-
-    this.commune = this.options.find(e => e.nom === this.nomVilleCtrl.value);
-
+    this.commune = this.options.find(e => e.nom === `${this.nomVilleCtrl.value}`);
+    console.log("le nom de la ville est " +  `${this.commune.nom}`  );
 
     if (this.isDisplay === true) {
       console.log('==========///  register artist ');
@@ -108,7 +106,12 @@ export class RegisterComponent implements OnInit {
         .then((data) => {
           this.router.navigate([PATH_LOGIN]);
         }, error => {
+
+
           this.errorMessage = error.error.error;
+
+
+          
         });
     }
   }
