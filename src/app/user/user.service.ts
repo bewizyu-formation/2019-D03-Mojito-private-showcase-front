@@ -51,14 +51,14 @@ export class UserService {
   registerArtiste(username: string, password: string, namedArtist: string, image: string, grade: number , longDescription: string,
     shortDescription: string, webSite: string, phoneNumber: string, email: string,
     nomVille: string, codeVille: string, codeDept: string): Promise<any> {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
     this.userRepository
-      .registerArtiste(username, password, namedArtist, image, grade, nomVille, longDescription,
-      shortDescription, webSite, phoneNumber, email, codeVille, codeDept)
+      .registerArtiste(username, password, namedArtist, image, grade, shortDescription, longDescription, webSite, email, nomVille,
+        codeVille, codeDept, phoneNumber)
      .then((response: HttpResponse<any>) => {
        console.log(response);
        resolve();
-     });
+     }, error => reject(error));
     });
     }
 

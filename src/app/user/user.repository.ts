@@ -39,14 +39,14 @@ export class UserRepository {
     ).toPromise();
   }
 
-  registerArtiste(username: string, password: string, namedArtist: string, image: string, grade: number, nomVille: string,
-                  longDescription: string, shortDescription: string, webSite: string, phoneNumber: string,  email: string,
-                  codeVille: string, codeDept: string)
+  registerArtiste(username: string, password: string, namedArtist: string, image: string, grade: number, shortDescription: string,
+                  longDescription: string, webSite: string, email: string, nomVille: string,
+                  codeVille: string, codeDept: string, phoneNumber: string )
     : Promise<any> {
     const url = `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}&password=${password}
-    &namedArtist=${namedArtist}&image=${image}  &grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}
-    &shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&email=${email}
-    &codeVille=${codeVille}&codeDept=${codeDept}`;
+    &namedArtist=${namedArtist}&image=${image}&grade=${grade}&shortDescription=${shortDescription}&longDescription=${longDescription}
+    &webSite=${webSite}&email=${email}&nomVille=${nomVille}
+    &codeVille=${codeVille}&codeDept=${codeDept}&phoneNumber=${phoneNumber}`;
     console.log('url', url);
     return this.http.post(url, {},
     ).toPromise();
