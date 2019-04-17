@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   namedArtistCtrl: FormControl;
   shortDescriptionCtrl: FormControl;
 
- 
+
 
 
   constructor(private router: Router, private user: UserService,
@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
 
   userRegister() {
     this.commune = this.options.find(e => e.nom === `${this.nomVilleCtrl.value}`);
-    console.log("le nom de la ville est " +  `${this.commune.nom}`  );
+    console.log('le nom de la ville est ' +  `${this.commune.nom}`  );
 
     if (this.isDisplay === true) {
       console.log('==========///  register artist ');
@@ -89,7 +89,7 @@ export class RegisterComponent implements OnInit {
         `${this.commune.nom}`,
         `${this.commune.code}`,
         `${this.commune.codeDepartement}`
-      ).then((data) => {this.router.navigate([PATH_LOGIN]); });
+      ).then((data) => {this.router.navigate([PATH_LOGIN]); }, error => this.errorMessage = error.error.error);
       this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
         `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`);
     } else {
@@ -106,12 +106,8 @@ export class RegisterComponent implements OnInit {
         .then((data) => {
           this.router.navigate([PATH_LOGIN]);
         }, error => {
-
-
           this.errorMessage = error.error.error;
 
-
-          
         });
     }
   }
