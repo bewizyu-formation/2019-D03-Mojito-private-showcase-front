@@ -31,8 +31,7 @@ export class UserRepository {
 
   register(username: string, password: string, email: string, nomVille: string,
            codeVille: string, codeDept: string): Promise<any> {
-    const url = `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER}?username=${username}
-    &password=${password}&email=${email}&nomVille=${nomVille}&codeVille=${codeVille}&codeDept=${codeDept}`;
+    const url = `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER}?username=${username}&password=${password}&email=${email}&nomVille=${nomVille}&codeVille=${codeVille}&codeDept=${codeDept}`;
     console.log('url', url);
     return this.http.post(url, {},
       {observe: 'response'}
@@ -43,10 +42,7 @@ export class UserRepository {
                   longDescription: string, shortDescription: string, webSite: string, phoneNumber: string,  email: string,
                   codeVille: string, codeDept: string)
     : Promise<any> {
-    const url = `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}&password=${password}
-    &namedArtist=${namedArtist}&image=${image}  &grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}
-    &shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&email=${email}
-    &codeVille=${codeVille}&codeDept=${codeDept}`;
+    const url = `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}&password=${password}&namedArtist=${namedArtist}&image=${image}&grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}&shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&email=${email}&codeVille=${codeVille}&codeDept=${codeDept}`;
     console.log('url', url);
     return this.http.post(url, {},
     ).toPromise();
