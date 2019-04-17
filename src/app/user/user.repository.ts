@@ -41,13 +41,13 @@ export class UserRepository {
   registerArtiste(username: string, namedArtist: string, image: string, grade: number , nomVille: string, longDescription: string,
     shortDescription: string, webSite: string, phoneNumber: string, password: string, email: string, codeVille: string, codeDept: string)
     : Promise<any> {
-const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}
-&namedArtist=${namedArtist}&image=${image}  &grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}
-&shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&password=${password}&email=${email}
-&codeVille=${codeVille}&codeDept=${codeDept}`;
-console.log('url', url);
-return this.http.post(url, {},
-).toPromise();
+    const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}
+    &namedArtist=${namedArtist}&image=${image}  &grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}
+    &shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&password=${password}&email=${email}
+    &codeVille=${codeVille}&codeDept=${codeDept}`;
+    console.log('url', url);
+    return this.http.post(url, {},
+    ).toPromise();
   }
 
 
