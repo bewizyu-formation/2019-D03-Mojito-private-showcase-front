@@ -38,7 +38,7 @@ export class UserRepository {
     ).toPromise();
   }
 
-  registerArtiste(username: string, password: string, namedArtist: string, image: string, grade: number , nomVille: string,
+  registerArtiste(username: string, password: string, namedArtist: string, image: string, grade: number, nomVille: string,
                   longDescription: string, shortDescription: string, webSite: string, phoneNumber: string,  email: string,
                   codeVille: string, codeDept: string)
     : Promise<any> {
