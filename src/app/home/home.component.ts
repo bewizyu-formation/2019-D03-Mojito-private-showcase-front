@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StarRatingColor} from '../star-rating/star-rating.component';
 import {Router} from '@angular/router';
 import {PATH_EVENT, PATH_PROFIL, PATH_PROFIL_ARTISTE, PATH_WELCOME, PATH_WELCOME_LOG} from '../app.routes.constante';
 import {UserService} from '../user/user.service';
-import {getToken} from 'codelyzer/angular/styles/cssLexer';
+
 
 @Component({
   selector: 'app-home',
@@ -14,8 +13,6 @@ export class HomeComponent implements OnInit {
   title = 'Artistes dans votre département';
 
   starCount = 5;
-
-  hidden: boolean;
 
   constructor(private router: Router, private userService: UserService) {
   }

@@ -34,9 +34,6 @@ export class RegisterComponent implements OnInit {
   namedArtistCtrl: FormControl;
   shortDescriptionCtrl: FormControl;
 
- 
-
-
   constructor(private router: Router, private user: UserService,
               private fb: FormBuilder, private geo: GeoRepository) {
 
@@ -74,21 +71,22 @@ export class RegisterComponent implements OnInit {
 
   userRegister() {
     this.commune = this.options.find(e => e.nom === `${this.nomVilleCtrl.value}`);
-    console.log("le nom de la ville est " +  `${this.commune.nom}`  );
+    console.log('le nom de la ville est ' +  `${this.commune.nom}`  );
 
     if (this.isDisplay === true) {
       console.log('==========///  register artist ');
       this.user.registerArtiste(`${this.usernameCtrl.value}`,
-        `${this.passwordCtrl.value}`,
         `${this.namedArtistCtrl.value}`,
-        'image', 5 ,
-        'longDescription',
+        'image',
+        5,  'longDescription',
         `${this.shortDescriptionCtrl.value}`,
-        'webSite', 'phoneNumber' ,
-        `${this.emailCtrl.value}`,
-        `${this.commune.nom}`,
+        'webSite',
+        `${this.emailCtrl.value}` , `${this.commune.nom}`,
         `${this.commune.code}`,
-        `${this.commune.codeDepartement}`
+        `${this.commune.codeDepartement}`,
+        'phoneNumber',
+        `${this.passwordCtrl.value}`
+
       ).then((data) => {this.router.navigate([PATH_LOGIN]); });
       this.user.register(`${this.usernameCtrl.value}`, `${this.passwordCtrl.value}`, `${this.emailCtrl.value}`,
         `${this.commune.nom}`, `${this.commune.code}`, `${this.commune.codeDepartement}`);
@@ -109,10 +107,7 @@ export class RegisterComponent implements OnInit {
 
 
           this.errorMessage = error.error.error;
-
-
-          
-        });
+ });
     }
   }
 
