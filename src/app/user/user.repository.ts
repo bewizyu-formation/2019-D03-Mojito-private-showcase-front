@@ -42,7 +42,7 @@ export class UserRepository {
                   longDescription: string, shortDescription: string, webSite: string, phoneNumber: string,  email: string,
                   codeVille: string, codeDept: string)
     : Promise<any> {
-    const url =  `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}&password=${password}
+    const url = `${this.env.getPrivateShowcaseApiConfig().uri}${RESOURCES_REGISTER_ARTISTE}?username=${username}&password=${password}
     &namedArtist=${namedArtist}&image=${image}  &grade=${grade}&nomVille=${nomVille}&longDescription=${longDescription}
     &shortDescription=${shortDescription}&webSite=${webSite}&phoneNumber=${phoneNumber}&email=${email}
     &codeVille=${codeVille}&codeDept=${codeDept}`;
